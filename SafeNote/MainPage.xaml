@@ -1,4 +1,8 @@
-﻿<Page
+﻿<!-- Tara O'Kelly -G00322214.
+     Safe Note. Third Year, Mobile Application Development 2, Software Development GMIT. 
+     The following code has been adapted from https://github.com/Microsoft/Windows-universal-samples -->
+    
+    <Page
     x:Class="SafeNote.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
