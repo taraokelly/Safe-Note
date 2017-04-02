@@ -1,0 +1,1 @@
+c:\users\tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\SafeNote.csproj;x86
