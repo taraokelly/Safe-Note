@@ -40,13 +40,18 @@ namespace SafeNote
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        #region Global Variables 
+
         MediaCapture _mediaCapture;
         bool _isPreviewing;
 
         DisplayRequest _displayRequest;
 
-        public object HardwareButtons { get; private set; }
+        //public object HardwareButtons { get; private set; }
 
+        #endregion  Global Variables 
+
+        #region Constructor
         public MainPage()
         {
             this.InitializeComponent();
@@ -55,8 +60,12 @@ namespace SafeNote
 
             // Useful to know when to initialize/clean up the camera
             Application.Current.Suspending += Application_Suspending;
+            Application.Current.Resuming += Application_Resuming;
         }
+        #endregion Constructor
         private void doSuff() { }
+
+        #region Capture Frame
         private async Task GetPreviewFrameAsSoftwareBitmapAsync()
         {
             // Get information about the preview
@@ -78,6 +87,9 @@ namespace SafeNote
                // Debug.WriteLine("Frame captured.");
             }
         }
+        #endregion
+
+        #region Click Events
 
         /*  private void FaceDetectionButton_Click(object sender, RoutedEventArgs e)
           {
@@ -93,20 +105,34 @@ namespace SafeNote
           {
 
           } */
+        #endregion Click Events
+
+        #region Preview Handlers 
         private async Task StartPreviewAsync()
         {
             try
             {
+                if (_mediaCapture == null)
+                {
+                    // Attempt to get the front camera if one is available, but use any camera device if not
+                    var cameraDevice = await FindCameraDeviceByPanelAsync(Windows.Devices.Enumeration.Panel.Front);
 
-                _mediaCapture = new MediaCapture();
-                await _mediaCapture.InitializeAsync();
+                    if (cameraDevice == null)
+                    {
+                        Debug.WriteLine("No camera device found!");
+                        return;
+                    }
 
-                PreviewControl.Source = _mediaCapture;
-                await _mediaCapture.StartPreviewAsync();
-                _isPreviewing = true;
+                    _mediaCapture = new MediaCapture();
+                    await _mediaCapture.InitializeAsync();
 
-                _displayRequest.RequestActive();
-                DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape;
+                     PreviewControl.Source = _mediaCapture;
+                     await _mediaCapture.StartPreviewAsync();
+                     _isPreviewing = true;
+
+                     _displayRequest.RequestActive();
+                     DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
+                }
             }
             catch (UnauthorizedAccessException)
             {
@@ -119,7 +145,7 @@ namespace SafeNote
             }
         }
 
-        private async Task CleanupCameraAsync()
+        private async Task CleanupPreviewAsync()
         {
             if (_mediaCapture != null)
             {
@@ -140,10 +166,52 @@ namespace SafeNote
                     _mediaCapture = null;
                 });
             }
-
         }
+
+        private static async Task<DeviceInformation> FindCameraDeviceByPanelAsync(Windows.Devices.Enumeration.Panel desiredPanel)
+        {
+            // Get available devices for capturing pictures
+            var allVideoDevices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
+
+            // Get the desired camera by panel
+            DeviceInformation desiredDevice = allVideoDevices.FirstOrDefault(x => x.EnclosureLocation != null && x.EnclosureLocation.Panel == desiredPanel);
+
+            // If there is no device mounted on the desired panel, return the first device found
+            return desiredDevice ?? allVideoDevices.FirstOrDefault();
+        }
+        #endregion Preview Handlers 
+
+        #region UI Handlers
+        private async Task SetupUiAsync()
+        {
+            // Attempt to lock page to landscape orientation to prevent the CaptureElement from rotating, as this gives a better experience
+            DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
+
+            // Hide the status bar
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                await Windows.UI.ViewManagement.StatusBar.GetForCurrentView().HideAsync();
+            }
+        }
+        private async Task CleanupUiAsync()
+        {
+
+            // Show the status bar
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                await Windows.UI.ViewManagement.StatusBar.GetForCurrentView().ShowAsync();
+            }
+
+            // Revert orientation preferences
+            DisplayInformation.AutoRotationPreferences = DisplayOrientations.None;
+        }
+        #endregion UI Handlers
+
+        #region Navigation Handlers
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            await SetupUiAsync();
+
             await StartPreviewAsync();
 
             await GetPreviewFrameAsSoftwareBitmapAsync();
@@ -151,17 +219,33 @@ namespace SafeNote
         }
         protected async override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            await CleanupCameraAsync();
+            await CleanupPreviewAsync();
+
+            await CleanupUiAsync();
         }
+        #endregion Navigation Handlers
+
+        #region Suspension Handlers
         private async void Application_Suspending(object sender, SuspendingEventArgs e)
         {
             // Handle global application events only if this page is active
             if (Frame.CurrentSourcePageType == typeof(MainPage))
             {
                 var deferral = e.SuspendingOperation.GetDeferral();
-                await CleanupCameraAsync();
+                await CleanupPreviewAsync();
+                await CleanupUiAsync();
                 deferral.Complete();
             }
         }
+        private async void Application_Resuming(object sender, object o)
+        {
+            // Handle global application events only if this page is active
+            if (Frame.CurrentSourcePageType == typeof(MainPage))
+            {
+                await SetupUiAsync();
+                await StartPreviewAsync();
+            }
+        }
+        #endregion Suspension Handlers
     }
 }
