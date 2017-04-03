@@ -23,11 +23,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using System.Threading;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 using Windows.Media.FaceAnalysis;
 using Windows.UI;
 using System.Collections.Generic;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -51,26 +53,46 @@ namespace SafeNote
             // Do not cache the state of the UI when suspending/navigating
             NavigationCacheMode = NavigationCacheMode.Disabled;
 
-         
-
             // Useful to know when to initialize/clean up the camera
             Application.Current.Suspending += Application_Suspending;
-            //Application.Current.Resuming += Application_Resuming;
         }
-      /*  private void FaceDetectionButton_Click(object sender, RoutedEventArgs e)
+        private void doSuff() { }
+        private async Task GetPreviewFrameAsSoftwareBitmapAsync()
         {
+            // Get information about the preview
+            var previewProperties = _mediaCapture.VideoDeviceController.GetMediaStreamProperties(MediaStreamType.VideoPreview) as VideoEncodingProperties;
 
+            // Create the video frame to request a SoftwareBitmap preview frame
+            var videoFrame = new VideoFrame(BitmapPixelFormat.Bgra8, (int)previewProperties.Width, (int)previewProperties.Height);
+
+            // Capture the preview frame
+            using (var currentFrame = await _mediaCapture.GetPreviewFrameAsync(videoFrame))
+            {
+                // Collect the resulting frame
+                SoftwareBitmap previewFrame = currentFrame.SoftwareBitmap;
+
+                // Add a simple green filter effect to the SoftwareBitmap
+                //EditPixels(previewFrame);
+                var dialog = new MessageDialog("Frame captured.");
+                await dialog.ShowAsync();
+               // Debug.WriteLine("Frame captured.");
+            }
         }
 
-        private void VideoButton_Click(object sender, RoutedEventArgs e)
-        {
+        /*  private void FaceDetectionButton_Click(object sender, RoutedEventArgs e)
+          {
 
-        }
+          }
 
-        private void PhotoButton_Click(object sender, RoutedEventArgs e)
-        {
+          private void VideoButton_Click(object sender, RoutedEventArgs e)
+          {
 
-        } */
+          }
+
+          private void PhotoButton_Click(object sender, RoutedEventArgs e)
+          {
+
+          } */
         private async Task StartPreviewAsync()
         {
             try
@@ -123,6 +145,9 @@ namespace SafeNote
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await StartPreviewAsync();
+
+            await GetPreviewFrameAsSoftwareBitmapAsync();
+
         }
         protected async override void OnNavigatedFrom(NavigationEventArgs e)
         {
