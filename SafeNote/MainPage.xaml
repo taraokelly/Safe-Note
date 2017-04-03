@@ -44,7 +44,7 @@
 
 
         <!-- Capture + Record buttons -->
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+ <!--       <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button Name="PhotoButton" Click="PhotoButton_Click" IsEnabled="False">
                 <Viewbox>
                     <SymbolIcon Symbol="Camera"/>
@@ -58,15 +58,15 @@
                 </Grid>
             </Button>
         </StackPanel>
-
+-->
         <!--Button to enable / disable face detection-->
-        <Button Name="FaceDetectionButton" Click="FaceDetectionButton_Click" IsEnabled="False">
+ <!--       <Button Name="FaceDetectionButton" Click="FaceDetectionButton_Click" IsEnabled="False">
             <Viewbox>
                 <Grid>
                     <SymbolIcon Name="FaceDetectionDisabledIcon" Symbol="Contact" Visibility="Visible"/>
                     <SymbolIcon Name="FaceDetectionEnabledIcon" Symbol="Contact2" Visibility="Collapsed"/>
                 </Grid>
             </Viewbox>
-        </Button>
+        </Button> -->
     </Grid>
 </Page>

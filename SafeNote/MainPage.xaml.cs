@@ -57,7 +57,7 @@ namespace SafeNote
             Application.Current.Suspending += Application_Suspending;
             //Application.Current.Resuming += Application_Resuming;
         }
-        private void FaceDetectionButton_Click(object sender, RoutedEventArgs e)
+      /*  private void FaceDetectionButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -70,7 +70,7 @@ namespace SafeNote
         private void PhotoButton_Click(object sender, RoutedEventArgs e)
         {
 
-        }
+        } */
         private async Task StartPreviewAsync()
         {
             try

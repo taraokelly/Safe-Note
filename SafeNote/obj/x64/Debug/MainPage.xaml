@@ -39,35 +39,35 @@
             <!--Canvas that will host the face detection bounding boxes, will share the same bounds as the preview within the CaptureElement-->
             <!--It's contained inside of another canvas to allow for adjusting its size and position after applying a RenderTransform -->
             <!--For more details, see SetFacesCanvasRotation-->
-            <Canvas x:ConnectionId='9' Name="FacesCanvas" RenderTransformOrigin="0.5,0.5"/>
+            <Canvas x:ConnectionId='2' Name="FacesCanvas" RenderTransformOrigin="0.5,0.5"/>
         </Canvas>
 
 
         <!-- Capture + Record buttons -->
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button x:ConnectionId='5' Name="PhotoButton"                           IsEnabled="False">
+ <!--       <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Name="PhotoButton" Click="PhotoButton_Click" IsEnabled="False">
                 <Viewbox>
                     <SymbolIcon Symbol="Camera"/>
                 </Viewbox>
             </Button>
 
-            <Button x:ConnectionId='6' Name="VideoButton"                           IsEnabled="False">
+            <Button Name="VideoButton" Click="VideoButton_Click" IsEnabled="False">
                 <Grid>
-                    <Ellipse x:ConnectionId='7' x:Name="StartRecordingIcon" Fill="Red" Width="20" Height="20"/>
-                    <Rectangle x:ConnectionId='8' x:Name="StopRecordingIcon" Fill="White" Width="20" Height="20" Visibility="Collapsed"/>
+                    <Ellipse x:Name="StartRecordingIcon" Fill="Red" Width="20" Height="20"/>
+                    <Rectangle x:Name="StopRecordingIcon" Fill="White" Width="20" Height="20" Visibility="Collapsed"/>
                 </Grid>
             </Button>
         </StackPanel>
-
+-->
         <!--Button to enable / disable face detection-->
-        <Button x:ConnectionId='2' Name="FaceDetectionButton"                                   IsEnabled="False">
+ <!--       <Button Name="FaceDetectionButton" Click="FaceDetectionButton_Click" IsEnabled="False">
             <Viewbox>
                 <Grid>
-                    <SymbolIcon x:ConnectionId='3' Name="FaceDetectionDisabledIcon" Symbol="Contact" Visibility="Visible"/>
-                    <SymbolIcon x:ConnectionId='4' Name="FaceDetectionEnabledIcon" Symbol="Contact2" Visibility="Collapsed"/>
+                    <SymbolIcon Name="FaceDetectionDisabledIcon" Symbol="Contact" Visibility="Visible"/>
+                    <SymbolIcon Name="FaceDetectionEnabledIcon" Symbol="Contact2" Visibility="Collapsed"/>
                 </Grid>
             </Viewbox>
-        </Button>
+        </Button> -->
     </Grid>
 </Page>
 
