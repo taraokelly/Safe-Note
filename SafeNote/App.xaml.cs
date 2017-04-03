@@ -29,7 +29,7 @@ namespace SafeNote
         public App()
         {
             this.InitializeComponent();
-            this.Suspending += OnSuspending;
+           // this.Suspending += OnSuspending;
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace SafeNote
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
-        /// <summary>
+  /*      /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
         /// without knowing whether the application will be terminated or resumed with the contents
         /// of memory still intact.
@@ -101,6 +101,6 @@ namespace SafeNote
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
-        }
+        }*/
     }
 }

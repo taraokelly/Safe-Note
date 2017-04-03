@@ -1,25 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Diagnostics;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.ApplicationModel;
+using Windows.Devices.Enumeration;
 using Windows.Devices.Sensors;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.Foundation.Metadata;
 using Windows.Graphics.Display;
+using Windows.Graphics.Imaging;
 using Windows.Media;
-using Windows.Media.Capture;
 using Windows.Media.Core;
+using Windows.Media.Capture;
 using Windows.Media.MediaProperties;
+using Windows.Phone.UI.Input;
 using Windows.Storage;
+using Windows.Storage.FileProperties;
+using Windows.Storage.Streams;
 using Windows.System.Display;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
+using Windows.Media.FaceAnalysis;
+using Windows.UI;
+using System.Collections.Generic;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -30,36 +38,12 @@ namespace SafeNote
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        // Receive notifications about rotation of the device and UI and apply any necessary rotation to the preview stream and UI controls
-           private readonly DisplayInformation _displayInformation = DisplayInformation.GetForCurrentView();
-           private readonly SimpleOrientationSensor _orientationSensor = SimpleOrientationSensor.GetDefault();
-           private SimpleOrientation _deviceOrientation = SimpleOrientation.NotRotated;
-           private DisplayOrientations _displayOrientation = DisplayOrientations.Portrait;
+        MediaCapture _mediaCapture;
+        bool _isPreviewing;
 
-           // Rotation metadata to apply to the preview stream and recorded videos (MF_MT_VIDEO_ROTATION)
-           // Reference: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh868174.aspx
-           private static readonly Guid RotationKey = new Guid("C380465D-2271-428C-9B83-ECEA3B4A85C1");
+        DisplayRequest _displayRequest;
 
-           // Folder in which the captures will be stored (initialized in SetupUiAsync)
-           private StorageFolder _captureFolder = null;
-
-           // Prevent the screen from sleeping while the camera is running
-           private readonly DisplayRequest _displayRequest = new DisplayRequest();
-
-           // For listening to media property changes
-           private readonly SystemMediaTransportControls _systemMediaControls = SystemMediaTransportControls.GetForCurrentView();
-
-           // MediaCapture and its state variables
-           private MediaCapture _mediaCapture;
-           private IMediaEncodingProperties _previewProperties;
-           private bool _isInitialized;
-           private bool _isRecording;
-
-           // Information about the camera device
-           private bool _mirroringPreview;
-           private bool _externalCamera; 
-
-           private FaceDetectionEffect _faceDetectionEffect; 
+        public object HardwareButtons { get; private set; }
 
         public MainPage()
         {
@@ -67,9 +51,15 @@ namespace SafeNote
             // Do not cache the state of the UI when suspending/navigating
             NavigationCacheMode = NavigationCacheMode.Disabled;
 
+         
+
             // Useful to know when to initialize/clean up the camera
-            //Application.Current.Suspending += Application_Suspending;
-           // Application.Current.Resuming += Application_Resuming;
+            Application.Current.Suspending += Application_Suspending;
+            //Application.Current.Resuming += Application_Resuming;
+        }
+        private void FaceDetectionButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void VideoButton_Click(object sender, RoutedEventArgs e)
@@ -81,10 +71,72 @@ namespace SafeNote
         {
 
         }
-
-        private void FaceDetectionButton_Click(object sender, RoutedEventArgs e)
+        private async Task StartPreviewAsync()
         {
+            try
+            {
 
+                _mediaCapture = new MediaCapture();
+                await _mediaCapture.InitializeAsync();
+
+                PreviewControl.Source = _mediaCapture;
+                await _mediaCapture.StartPreviewAsync();
+                _isPreviewing = true;
+
+                _displayRequest.RequestActive();
+                DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                // This will be thrown if the user denied access to the camera in privacy settings
+                System.Diagnostics.Debug.WriteLine("The app was denied access to the camera");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("MediaCapture initialization failed. {0}", ex.Message);
+            }
+        }
+
+        private async Task CleanupCameraAsync()
+        {
+            if (_mediaCapture != null)
+            {
+                if (_isPreviewing)
+                {
+                    await _mediaCapture.StopPreviewAsync();
+                }
+
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    PreviewControl.Source = null;
+                    if (_displayRequest != null)
+                    {
+                        _displayRequest.RequestRelease();
+                    }
+
+                    _mediaCapture.Dispose();
+                    _mediaCapture = null;
+                });
+            }
+
+        }
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            await StartPreviewAsync();
+        }
+        protected async override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            await CleanupCameraAsync();
+        }
+        private async void Application_Suspending(object sender, SuspendingEventArgs e)
+        {
+            // Handle global application events only if this page is active
+            if (Frame.CurrentSourcePageType == typeof(MainPage))
+            {
+                var deferral = e.SuspendingOperation.GetDeferral();
+                await CleanupCameraAsync();
+                deferral.Complete();
+            }
         }
     }
 }
