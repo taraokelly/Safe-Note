@@ -109,6 +109,11 @@ namespace SafeNote
             this.Frame.Navigate(typeof(EnterPassword), null);
         }
 
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings), null);
+        }
+
         #endregion Click Events
 
         #region Preview Handlers 
@@ -187,14 +192,11 @@ namespace SafeNote
 
         #region UI Handlers
 
-        private void authenticationUI()
-        {
-
-        }
-
         private void settingsUI()
         {
-
+            outputBox.Visibility = Visibility.Collapsed;
+            passwordButton.Visibility = Visibility.Collapsed;
+            settingsButton.Visibility = Visibility.Visible;
         }
 
         private async Task SetupUiAsync()
@@ -227,14 +229,24 @@ namespace SafeNote
         {
             await SetupUiAsync();
 
-            await StartPreviewAsync();
+            if (relocate)
+            {
+                settingsUI();
+            }
+            else
+            {
+                await StartPreviewAsync();
 
-            await GetPreviewFrameAsSoftwareBitmapAsync();
+                await GetPreviewFrameAsSoftwareBitmapAsync();
+            }
         }
         protected async override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            await CleanupPreviewAsync();
+            if (!relocate)
+            {
+                await CleanupPreviewAsync();
 
+            }
             await CleanupUiAsync();
         }
         #endregion Navigation Handlers

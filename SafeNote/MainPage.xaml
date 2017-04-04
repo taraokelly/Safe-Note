@@ -23,7 +23,7 @@
                 <Setter Property="Text" Value="Welcome!"></Setter>
                 <Setter Property="FontFamily" Value="Tahoma"></Setter>
                 <Setter Property="Foreground" Value="White"></Setter>
-               <!-- <Setter Property="BorderBrush" Value="White"/>-->
+                <Setter Property="BorderBrush" Value="White"/>
                 <Setter Property="Background" Value="{StaticResource TranslucentBlackBrush}"></Setter>
                 <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
             </Style>
@@ -44,14 +44,19 @@
 
         <!--Camera preview-->
         <CaptureElement Name="PreviewControl" Stretch="Uniform"/>
-
-            <TextBox x:Name="textBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" BorderBrush="White" VerticalAlignment="Top" IsReadOnly="True"/>
+        
+        <!-- Output-->
+        <TextBox x:Name="outputBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
+        
         <!--Enter Password Button-->
-        <Button Name="Password" Click="Password_Click" IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Button Name="passwordButton" Click="Password_Click" IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Viewbox>
                 <SymbolIcon Symbol="Keyboard"/>
             </Viewbox>
         </Button>
         
+        <!-- Get Started Button -->
+        <Button Name="settingsButton" Click="Settings_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Content="GET STARTED" BorderThickness="0" Background="Black"  Visibility="Collapsed" MinHeight="40"/>
+
     </Grid>
 </Page>

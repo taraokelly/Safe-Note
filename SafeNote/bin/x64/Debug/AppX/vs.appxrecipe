@@ -28,17 +28,25 @@
     <AppXManifest Include="C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-04T19:12:41.547</Modified>
+      <Modified>2017-04-04T22:59:22.947</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.exe">
       <PackagePath>entrypoint\SafeNote.exe</PackagePath>
-      <Modified>2017-04-04T19:12:38.181</Modified>
+      <Modified>2017-04-04T22:59:21.959</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
       <Modified>2015-12-15T17:48:55.983</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\win8\System.Net.Http.Extensions.dll">
+      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
+      <Modified>2015-02-19T20:10:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\win8\System.Net.Http.Primitives.dll">
+      <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
+      <Modified>2015-02-19T20:10:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\lib\netcore50\System.ComponentModel.DataAnnotations.dll">
       <PackagePath>System.ComponentModel.DataAnnotations.dll</PackagePath>
@@ -88,6 +96,14 @@
       <PackagePath>System.dll</PackagePath>
       <Modified>2015-12-15T17:48:55.088</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.ProjectOxford.Common\1.0.324\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Microsoft.ProjectOxford.Common.dll">
+      <PackagePath>Microsoft.ProjectOxford.Common.dll</PackagePath>
+      <Modified>2017-01-20T11:57:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.ProjectOxford.Face\1.2.5\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Microsoft.ProjectOxford.Face.dll">
+      <PackagePath>Microsoft.ProjectOxford.Face.dll</PackagePath>
+      <Modified>2017-03-30T09:31:50.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.VisualBasic\10.0.0\lib\netcore50\Microsoft.VisualBasic.dll">
       <PackagePath>Microsoft.VisualBasic.dll</PackagePath>
       <Modified>2015-12-15T17:48:55.633</Modified>
@@ -95,6 +111,10 @@
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.Win32.Primitives\4.0.0\lib\dotnet\Microsoft.Win32.Primitives.dll">
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
       <Modified>2015-12-15T17:48:54.193</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Newtonsoft.Json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2016-06-13T22:06:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
@@ -488,7 +508,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.xr.xml">
       <PackagePath>SafeNote.xr.xml</PackagePath>
-      <Modified>2017-04-04T19:12:37.865</Modified>
+      <Modified>2017-04-04T22:59:21.621</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -497,11 +517,11 @@
     <AppxPackagedFile Include="C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-04T19:12:40.937</Modified>
+      <Modified>2017-04-04T22:59:22.759</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\SafeNote.exe">
       <PackagePath>SafeNote.exe</PackagePath>
-      <Modified>2017-04-04T19:12:41.535</Modified>
+      <Modified>2017-04-04T22:59:22.941</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
