@@ -17,6 +17,16 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Height" Value="60"></Setter>
+                <Setter Property="Width" Value="200"></Setter>
+                <Setter Property="Text" Value="Welcome!"></Setter>
+                <Setter Property="FontFamily" Value="Tahoma"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Setter Property="Background" Value="{StaticResource TranslucentBlackBrush}"></Setter>
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            </Style>
             <Style TargetType="Button">
                 <Setter Property="Margin" Value="10,40"/>
                 <Setter Property="MinWidth" Value="80"/>
@@ -24,8 +34,8 @@
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Background" Value="{StaticResource TranslucentBlackBrush}"/>
                 <Setter Property="BorderBrush" Value="White"/>
-                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-            </Style>
+                
+            </Style> 
             <Style TargetType="Viewbox">
                 <Setter Property="MaxHeight" Value="40"/>
                 <Setter Property="MaxWidth" Value="40"/>
@@ -35,38 +45,13 @@
         <!--Camera preview-->
         <CaptureElement Name="PreviewControl" Stretch="Uniform"/>
 
-        <Canvas>
-            <!--Canvas that will host the face detection bounding boxes, will share the same bounds as the preview within the CaptureElement-->
-            <!--It's contained inside of another canvas to allow for adjusting its size and position after applying a RenderTransform -->
-            <!--For more details, see SetFacesCanvasRotation-->
-            <Canvas Name="FacesCanvas" RenderTransformOrigin="0.5,0.5"/>
-        </Canvas>
+            <TextBox x:Name="textBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" BorderThickness="2"  VerticalAlignment="Top" IsReadOnly="True"/>
 
-
-        <!-- Capture + Record buttons -->
- <!--       <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Name="PhotoButton" Click="PhotoButton_Click" IsEnabled="False">
-                <Viewbox>
-                    <SymbolIcon Symbol="Camera"/>
-                </Viewbox>
-            </Button>
-
-            <Button Name="VideoButton" Click="VideoButton_Click" IsEnabled="False">
-                <Grid>
-                    <Ellipse x:Name="StartRecordingIcon" Fill="Red" Width="20" Height="20"/>
-                    <Rectangle x:Name="StopRecordingIcon" Fill="White" Width="20" Height="20" Visibility="Collapsed"/>
-                </Grid>
-            </Button>
-        </StackPanel>
--->
-        <!--Button to enable / disable face detection-->
- <!--       <Button Name="FaceDetectionButton" Click="FaceDetectionButton_Click" IsEnabled="False">
+        <Button Name="Password" Click="Password_Click" IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Viewbox>
-                <Grid>
-                    <SymbolIcon Name="FaceDetectionDisabledIcon" Symbol="Contact" Visibility="Visible"/>
-                    <SymbolIcon Name="FaceDetectionEnabledIcon" Symbol="Contact2" Visibility="Collapsed"/>
-                </Grid>
+                <SymbolIcon Symbol="Keyboard"/>
             </Viewbox>
-        </Button> -->
+        </Button>
+        
     </Grid>
 </Page>

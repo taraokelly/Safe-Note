@@ -91,20 +91,11 @@ namespace SafeNote
 
         #region Click Events
 
-        /*  private void FaceDetectionButton_Click(object sender, RoutedEventArgs e)
-          {
+        private void Password_Click(object sender, RoutedEventArgs e)
+        {
 
-          }
+        }
 
-          private void VideoButton_Click(object sender, RoutedEventArgs e)
-          {
-
-          }
-
-          private void PhotoButton_Click(object sender, RoutedEventArgs e)
-          {
-
-          } */
         #endregion Click Events
 
         #region Preview Handlers 
