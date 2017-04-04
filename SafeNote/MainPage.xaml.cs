@@ -23,7 +23,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using System.Threading;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 using Windows.Media.FaceAnalysis;
@@ -42,6 +41,8 @@ namespace SafeNote
     {
         #region Global Variables 
 
+        bool relocate = true;
+
         MediaCapture _mediaCapture;
         bool _isPreviewing;
 
@@ -55,6 +56,7 @@ namespace SafeNote
         public MainPage()
         {
             this.InitializeComponent();
+
             // Do not cache the state of the UI when suspending/navigating
             NavigationCacheMode = NavigationCacheMode.Disabled;
 
@@ -63,7 +65,17 @@ namespace SafeNote
             Application.Current.Resuming += Application_Resuming;
         }
         #endregion Constructor
+
+        #region General Functions
+
         private void doSuff() { }
+
+        private void CloseApp()
+        {
+            Application.Current.Exit();
+        }
+
+        #endregion
 
         #region Capture Frame
         private async Task GetPreviewFrameAsSoftwareBitmapAsync()
@@ -82,8 +94,8 @@ namespace SafeNote
 
                 // Add a simple green filter effect to the SoftwareBitmap
                 //EditPixels(previewFrame);
-                var dialog = new MessageDialog("Frame captured.");
-                await dialog.ShowAsync();
+                //var dialog = new MessageDialog("Frame captured.");
+                //await dialog.ShowAsync();
                // Debug.WriteLine("Frame captured.");
             }
         }
@@ -93,7 +105,8 @@ namespace SafeNote
 
         private void Password_Click(object sender, RoutedEventArgs e)
         {
-
+            //CloseApp();
+            this.Frame.Navigate(typeof(EnterPassword), null);
         }
 
         #endregion Click Events
@@ -173,6 +186,17 @@ namespace SafeNote
         #endregion Preview Handlers 
 
         #region UI Handlers
+
+        private void authenticationUI()
+        {
+
+        }
+
+        private void settingsUI()
+        {
+
+        }
+
         private async Task SetupUiAsync()
         {
             // Attempt to lock page to landscape orientation to prevent the CaptureElement from rotating, as this gives a better experience
@@ -206,7 +230,6 @@ namespace SafeNote
             await StartPreviewAsync();
 
             await GetPreviewFrameAsSoftwareBitmapAsync();
-
         }
         protected async override void OnNavigatedFrom(NavigationEventArgs e)
         {

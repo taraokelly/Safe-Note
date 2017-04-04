@@ -43,11 +43,11 @@
         </Grid.Resources>
 
         <!--Camera preview-->
-        <CaptureElement Name="PreviewControl" Stretch="Uniform"/>
+        <CaptureElement x:ConnectionId='1' Name="PreviewControl" Stretch="Uniform"/>
 
-            <TextBox x:Name="textBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" BorderBrush="White" VerticalAlignment="Top" IsReadOnly="True"/>
+            <TextBox x:ConnectionId='2' x:Name="textBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" BorderBrush="White" VerticalAlignment="Top" IsReadOnly="True"/>
         <!--Enter Password Button-->
-        <Button Name="Password" Click="Password_Click" IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Button x:ConnectionId='3' Name="Password"                        IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Viewbox>
                 <SymbolIcon Symbol="Keyboard"/>
             </Viewbox>
@@ -55,3 +55,4 @@
         
     </Grid>
 </Page>
+

@@ -190,3 +190,8 @@ C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\De
 C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\SafeNote.csprojResolveAssemblyReference.cache
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\EnterPassword.xbf
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\EnterPassword.g.i.cs
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\EnterPassword.g.cs
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\EnterPassword.xaml
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\EnterPassword.xbf
