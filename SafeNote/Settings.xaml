@@ -40,19 +40,22 @@
                 <Setter Property="MaxWidth" Value="40"/>
             </Style>
         </Grid.Resources>
-        <StackPanel>
-            <TextBox x:Name="outputBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" Text="Welcome!" VerticalAlignment="Top" IsReadOnly="True"/>
-           <!-- <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">-->
+        <ScrollViewer>
+            <StackPanel>
+                <TextBox x:Name="outputBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" Text="Welcome!" VerticalAlignment="Top" IsReadOnly="True"/>
+                <!-- <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">-->
                 <Button Name="cameraButton" Click="Camera_Click" HorizontalAlignment="Center" IsEnabled="True" MinWidth="40">
                     <Viewbox>
                         <SymbolIcon Symbol="Camera"/>
                     </Viewbox>
                 </Button>
                 <Image x:Name="image" Height="130" Width="130" HorizontalAlignment="Center"/>
-           <!-- </StackPanel> -->
-            <PasswordBox x:Name="passwordBox" Header="Enter Password:" HorizontalAlignment="Center"/>
-            <PasswordBox x:Name="checkPasswordBox" Header="Re-enter Password:" HorizontalAlignment="Center"/>
-            <TextBox x:Name="keyBox" Header="Enter Face Key:"/>
-        </StackPanel>
+                <!-- </StackPanel> -->
+                <PasswordBox x:Name="passwordBox" Header="Enter Password:" HorizontalAlignment="Center"/>
+                <PasswordBox x:Name="checkPasswordBox" Header="Re-enter Password:" HorizontalAlignment="Center"/>
+                <TextBox x:Name="keyBox" Header="Enter Face Key:"/>
+                <HyperlinkButton NavigateUri="https://www.microsoft.com/cognitive-services/en-us/sign-up" HorizontalAlignment="Center">Don't have a key? Sign up for free here.</HyperlinkButton>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

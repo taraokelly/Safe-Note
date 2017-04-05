@@ -40,20 +40,23 @@
                 <Setter Property="MaxWidth" Value="40"/>
             </Style>
         </Grid.Resources>
-        <StackPanel>
-            <TextBox x:ConnectionId='1' x:Name="outputBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" Text="Welcome!" VerticalAlignment="Top" IsReadOnly="True"/>
-           <!-- <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">-->
+        <ScrollViewer>
+            <StackPanel>
+                <TextBox x:ConnectionId='1' x:Name="outputBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" Text="Welcome!" VerticalAlignment="Top" IsReadOnly="True"/>
+                <!-- <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">-->
                 <Button x:ConnectionId='2' Name="cameraButton"                      HorizontalAlignment="Center" IsEnabled="True" MinWidth="40">
                     <Viewbox>
                         <SymbolIcon Symbol="Camera"/>
                     </Viewbox>
                 </Button>
                 <Image x:ConnectionId='3' x:Name="image" Height="130" Width="130" HorizontalAlignment="Center"/>
-           <!-- </StackPanel> -->
-            <PasswordBox x:ConnectionId='4' x:Name="passwordBox" Header="Enter Password:" HorizontalAlignment="Center"/>
-            <PasswordBox x:ConnectionId='5' x:Name="checkPasswordBox" Header="Re-enter Password:" HorizontalAlignment="Center"/>
-            <TextBox x:ConnectionId='6' x:Name="keyBox" Header="Enter Face Key:"/>
-        </StackPanel>
+                <!-- </StackPanel> -->
+                <PasswordBox x:ConnectionId='4' x:Name="passwordBox" Header="Enter Password:" HorizontalAlignment="Center"/>
+                <PasswordBox x:ConnectionId='5' x:Name="checkPasswordBox" Header="Re-enter Password:" HorizontalAlignment="Center"/>
+                <TextBox x:ConnectionId='6' x:Name="keyBox" Header="Enter Face Key:"/>
+                <HyperlinkButton NavigateUri="https://www.microsoft.com/cognitive-services/en-us/sign-up" HorizontalAlignment="Center">Don't have a key? Sign up for free here.</HyperlinkButton>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
 

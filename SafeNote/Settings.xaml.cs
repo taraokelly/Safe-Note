@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.ProjectOxford.Face;
+using Microsoft.ProjectOxford.Common;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,6 +19,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.ProjectOxford.Face.Contract;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,7 +34,8 @@ namespace SafeNote
         StorageFile photo;
         IRandomAccessStream imageStream;
 
-        const string APIKEY = "b82e901b07634122a83befc64d7ab54f";
+        const string APIKEY = "fe355e1480a24916aa8a641b6cf29c7b";
+        FaceServiceClient serviceClient = new FaceServiceClient(APIKEY);
 
         public Settings()
         {
@@ -63,8 +67,25 @@ namespace SafeNote
                     await bitmapSource.SetBitmapAsync(softwareBitmapBGR8);
 
                     image.Source = bitmapSource;
-
-
+                    try
+                    {
+                        Face[] faces = await serviceClient.DetectAsync(imageStream.AsStream());
+ 
+                        if (faces != null)
+                        {     
+                                var id = faces[0].FaceId;
+                                // outputBox.Text = "FaceID : " + id;
+                                outputBox.Text = "Face Detected.";
+                        }
+                        else
+                        {
+                            outputBox.Text = "Error detecting face. Are you visibile in the photo? Have you entered the correct key?";
+                        }
+                    }
+                    catch
+                    {
+                        outputBox.Text = "Error detecting face. Are you visibile in the photo? Have you entered the correct key?";
+                    }
                 }
             }
             catch

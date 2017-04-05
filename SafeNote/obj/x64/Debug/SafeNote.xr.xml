@@ -77,6 +77,9 @@
       <RootProperty Name="Header" />
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="Content" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Children" />
     </RootType>
@@ -84,6 +87,11 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="HorizontalAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
+      <RootProperty Name="NavigateUri" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="SafeNote.Settings" />
   </Roots.RootTypes>
