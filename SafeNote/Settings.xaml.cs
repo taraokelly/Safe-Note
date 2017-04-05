@@ -21,13 +21,8 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.ProjectOxford.Face.Contract;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace SafeNote
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class Settings : Page
     {
         CameraCaptureUI captureUI = new CameraCaptureUI();
@@ -71,7 +66,7 @@ namespace SafeNote
                     {
                         Face[] faces = await serviceClient.DetectAsync(imageStream.AsStream());
  
-                        if (faces != null)
+                        if (faces.Length > 0)
                         {     
                                 var id = faces[0].FaceId;
                                 // outputBox.Text = "FaceID : " + id;
@@ -79,12 +74,12 @@ namespace SafeNote
                         }
                         else
                         {
-                            outputBox.Text = "Error detecting face. Are you visibile in the photo? Have you entered the correct key?";
+                            outputBox.Text = "Error detecting face. Are you visibile in the photo? ";
                         }
                     }
                     catch
                     {
-                        outputBox.Text = "Error detecting face. Are you visibile in the photo? Have you entered the correct key?";
+                        outputBox.Text = "Error detecting face. Have you entered the correct key?";
                     }
                 }
             }
