@@ -69,25 +69,59 @@ namespace SafeNote
                         if (faces.Length > 0)
                         {     
                                 var id = faces[0].FaceId;
-                                // outputBox.Text = "FaceID : " + id;
-                                outputBox.Text = "Face Detected.";
+                                // save FaceID here
+                                // enable submit button here
+                                imageErrorBox.Text = "Face Detected.";
                         }
                         else
                         {
-                            outputBox.Text = "Error detecting face. Are you visibile in the photo? ";
+                            // disable submit button here
+                            imageErrorBox.Text = "Error detecting face. Are you visibile in the photo? ";
                         }
                     }
                     catch
                     {
-                        outputBox.Text = "Error detecting face. Have you entered the correct key?";
+                        // disable submit button here
+                        imageErrorBox.Text = "Error detecting face. Have you entered the correct key?";
                     }
                 }
             }
             catch
             {
-                outputBox.Text = "Error taking photo";
+                // disable submit button here
+                imageErrorBox.Text = "Error taking photo";
             }
 
+        }
+
+        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if(passwordBox.Password.Contains(" "))
+            {
+                passwordErrorBox.Text = "Password cannot contain any spaces.";
+            }
+            else if(passwordBox.Password.Length <=7)
+            {
+                passwordErrorBox.Text = "Password must be 8 characters long.";
+            }
+            else
+            {
+                passwordErrorBox.Text = "";
+            }
+        }
+
+        private void checkPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            int check = checkPasswordBox.Password.CompareTo(passwordBox.Password);
+
+            if (check!=0)
+            {
+                checkPasswordErrorBox.Text = "Passwords do not match.";
+            }
+            else
+            {
+                checkPasswordErrorBox.Text = "";
+            }
         }
     }
 }
