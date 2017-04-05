@@ -53,7 +53,16 @@ namespace SafeNote
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            localSettings.Values["key"] = keyBox.Text;
             this.Frame.Navigate(typeof(Settings), null);
+        }
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            keyBox.Text = localSettings.Values["key"].ToString();
         }
     }
 }
