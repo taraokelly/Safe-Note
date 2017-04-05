@@ -111,7 +111,7 @@ namespace SafeNote
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Settings), null);
+            this.Frame.Navigate(typeof(APIKey), null);
         }
 
         #endregion Click Events

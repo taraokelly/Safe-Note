@@ -205,3 +205,8 @@ C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\De
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Microsoft.ProjectOxford.Common.dll
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Microsoft.ProjectOxford.Face.dll
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\APIKey.xbf
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.g.i.cs
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.g.cs
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.xaml
+C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.xbf
