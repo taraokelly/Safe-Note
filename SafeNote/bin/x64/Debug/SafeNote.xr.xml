@@ -67,7 +67,6 @@
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Name" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="BorderThickness" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="MinHeight" />
       <RootProperty Name="MinWidth" />

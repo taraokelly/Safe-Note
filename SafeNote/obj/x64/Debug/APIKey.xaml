@@ -26,6 +26,8 @@
             <TextBox x:ConnectionId='1' x:Name="keyBox" Header="Enter Face Key:"                                  MaxLength="40"/>
             <TextBox x:ConnectionId='2' x:Name="keyErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
             <HyperlinkButton NavigateUri="https://www.microsoft.com/cognitive-services/en-us/sign-up" HorizontalAlignment="Center">Don't have a key? Sign up for free here.</HyperlinkButton>
+            
+            <!--Submit Button-->
             <Button x:ConnectionId='3' x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center" Background="Green" Foreground="White" IsEnabled="False" BorderBrush="DarkGreen"                     />
 
         </StackPanel>

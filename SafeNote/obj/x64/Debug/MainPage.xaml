@@ -56,7 +56,7 @@
         </Button>
         
         <!-- Get Started Button -->
-        <Button x:ConnectionId='4' Name="settingsButton"                        HorizontalAlignment="Center" VerticalAlignment="Center" Content="GET STARTED" BorderThickness="0" Background="Black"  Visibility="Collapsed" MinHeight="40"/>
+        <Button x:ConnectionId='4' Name="settingsButton"                        HorizontalAlignment="Center" VerticalAlignment="Center" Content="GET STARTED" BorderBrush="DarkGreen" Background="Green"  Visibility="Collapsed" MinHeight="40"/>
 
     </Grid>
 </Page>

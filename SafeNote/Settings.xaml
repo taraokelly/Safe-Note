@@ -63,6 +63,8 @@
                 <PasswordBox x:Name="checkPasswordBox" Header="Re-enter Password:" HorizontalAlignment="Center" PasswordChanged="checkPasswordBox_PasswordChanged"/>
                 <TextBox x:Name="checkPasswordErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
                 
+                <!--Submit Button-->
+                <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center" Background="Green" Foreground="White" BorderBrush="DarkGreen" Click="submit_Click"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

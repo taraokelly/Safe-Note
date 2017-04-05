@@ -63,6 +63,8 @@
                 <PasswordBox x:ConnectionId='6' x:Name="checkPasswordBox" Header="Re-enter Password:" HorizontalAlignment="Center"                                                   />
                 <TextBox x:ConnectionId='7' x:Name="checkPasswordErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
                 
+                <!--Submit Button-->
+                <Button x:ConnectionId='8' x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center" Background="Green" Foreground="White" BorderBrush="DarkGreen"                     />
             </StackPanel>
         </ScrollViewer>
     </Grid>
