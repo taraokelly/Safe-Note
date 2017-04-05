@@ -29,6 +29,7 @@ using Windows.Media.FaceAnalysis;
 using Windows.UI;
 using System.Collections.Generic;
 using Windows.UI.Popups;
+using System.IO.IsolatedStorage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -39,16 +40,16 @@ namespace SafeNote
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        #region Global Variables 
+        #region Global Variables
 
-        bool relocate = true;
+        //private IsolatedStorageFile appSettings = IsolatedStorageFile.;
+        
+        bool relocate = false;
 
         MediaCapture _mediaCapture;
         bool _isPreviewing;
 
         DisplayRequest _displayRequest;
-
-        //public object HardwareButtons { get; private set; }
 
         #endregion  Global Variables 
 
@@ -227,14 +228,25 @@ namespace SafeNote
         #region Navigation Handlers
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             await SetupUiAsync();
 
-            if (relocate)
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            if ((string)localSettings.Values["UserDetails"] == null || (string)localSettings.Values["UserDetails"] == "false")
             {
+                relocate = true;
+                localSettings.Values["UserDetails"] = "false";
+                localSettings.Values["faceID"] = "";
+                localSettings.Values["password"] = "";
+                localSettings.Values["key"] = "";
+                //hide buttons for verification
+                //show logo and get started button
                 settingsUI();
             }
             else
             {
+                //start preview and user verification
                 await StartPreviewAsync();
 
                 await GetPreviewFrameAsSoftwareBitmapAsync();
@@ -254,22 +266,34 @@ namespace SafeNote
         #region Suspension Handlers
         private async void Application_Suspending(object sender, SuspendingEventArgs e)
         {
-            // Handle global application events only if this page is active
-            if (Frame.CurrentSourcePageType == typeof(MainPage))
+            if (!relocate)
             {
-                var deferral = e.SuspendingOperation.GetDeferral();
-                await CleanupPreviewAsync();
+                if (Frame.CurrentSourcePageType == typeof(MainPage))
+                {
+                    var deferral = e.SuspendingOperation.GetDeferral();
+                    await CleanupPreviewAsync();
+                    await CleanupUiAsync();
+                    deferral.Complete();
+                }
+            }
+            else
+            {
                 await CleanupUiAsync();
-                deferral.Complete();
             }
         }
         private async void Application_Resuming(object sender, object o)
         {
-            // Handle global application events only if this page is active
-            if (Frame.CurrentSourcePageType == typeof(MainPage))
+            if (!relocate)
+            {
+                if (Frame.CurrentSourcePageType == typeof(MainPage))
+                {
+                    await SetupUiAsync();
+                    await StartPreviewAsync();
+                }
+            }
+            else
             {
                 await SetupUiAsync();
-                await StartPreviewAsync();
             }
         }
         #endregion Suspension Handlers
