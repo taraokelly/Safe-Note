@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -49,8 +48,7 @@ namespace SafeNote
 
             if (passwordBox.Password.Equals((string)localSettings.Values["password"]))
             {
-                var dialog = new MessageDialog("Authentication Successful!");
-                await dialog.ShowAsync();
+                this.Frame.Navigate(typeof(Notes), null);
             }
             if (passwordBox.Password.Equals(""))
             {

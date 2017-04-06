@@ -27,7 +27,6 @@ using Windows.UI.Xaml.Shapes;
 using Windows.Media.FaceAnalysis;
 using Windows.UI;
 using System.Collections.Generic;
-using Windows.UI.Popups;
 using Microsoft.ProjectOxford.Face;
 using System.Collections.Concurrent;
 using Microsoft.ProjectOxford.Face.Contract;
@@ -178,13 +177,11 @@ namespace SafeNote
 
                                             if (res.IsIdentical == true)
                                             {
-                                                var dialog = new MessageDialog("Authentication Successful!");
-                                                await dialog.ShowAsync();
+                                                this.Frame.Navigate(typeof(Notes), null);
                                             }
                                             else
                                             {
-                                                var dialog = new MessageDialog("Intruder Alert!");
-                                                await dialog.ShowAsync();
+                                                outputBox.Text ="Intruder. Access Denied!";
                                             }
                                         }
                                     }

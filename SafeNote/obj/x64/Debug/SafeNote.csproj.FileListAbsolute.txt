@@ -210,3 +210,8 @@ C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\De
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.g.cs
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.xaml
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.xbf
+C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Notes.xbf
+C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\Notes.g.i.cs
+C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\Notes.g.cs
+C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\Notes.xaml
+C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\Notes.xbf

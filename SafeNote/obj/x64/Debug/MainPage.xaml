@@ -1,0 +1,62 @@
+﻿<!-- Tara O'Kelly -G00322214.
+     Safe Note. Third Year, Mobile Application Development 2, Software Development GMIT.  -->
+    
+    <Page
+    x:Class="SafeNote.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SafeNote"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="TranslucentBlackBrush" Color="Black" Opacity="0.3"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Height" Value="60"></Setter>
+                <Setter Property="Width" Value="200"></Setter>
+                <Setter Property="Text" Value="Welcome!"></Setter>
+                <Setter Property="FontFamily" Value="Tahoma"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Setter Property="Background" Value="{StaticResource TranslucentBlackBrush}"></Setter>
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10,40"/>
+                <Setter Property="MinWidth" Value="80"/>
+                <Setter Property="MinHeight" Value="80"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="{StaticResource TranslucentBlackBrush}"/>
+                <Setter Property="BorderBrush" Value="White"/>
+                
+            </Style> 
+            <Style TargetType="Viewbox">
+                <Setter Property="MaxHeight" Value="40"/>
+                <Setter Property="MaxWidth" Value="40"/>
+            </Style>
+        </Grid.Resources>
+
+        <!--Camera preview-->
+        <CaptureElement x:ConnectionId='1' Name="PreviewControl" Stretch="Uniform"/>
+        
+        <!-- Output-->
+        <TextBox x:ConnectionId='2' x:Name="outputBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
+        
+        <!--Enter Password Button-->
+        <Button x:ConnectionId='3' Name="passwordButton"                        IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Viewbox>
+                <SymbolIcon Symbol="Keyboard"/>
+            </Viewbox>
+        </Button>
+        
+        <!-- Get Started Button -->
+        <Button x:ConnectionId='4' Name="settingsButton"                        HorizontalAlignment="Center" VerticalAlignment="Center" Content="GET STARTED" BorderBrush="DarkGreen" Background="Green"  Visibility="Collapsed" MinHeight="40"/>
+
+    </Grid>
+</Page>
+

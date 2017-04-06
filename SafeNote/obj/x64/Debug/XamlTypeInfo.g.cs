@@ -132,21 +132,23 @@ namespace SafeNote.SafeNote_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
+            _typeNameTable = new string[7];
             _typeNameTable[0] = "SafeNote.APIKey";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "SafeNote.EnterPassword";
             _typeNameTable[4] = "SafeNote.MainPage";
-            _typeNameTable[5] = "SafeNote.Settings";
+            _typeNameTable[5] = "SafeNote.Notes";
+            _typeNameTable[6] = "SafeNote.Settings";
 
-            _typeTable = new global::System.Type[6];
+            _typeTable = new global::System.Type[7];
             _typeTable[0] = typeof(global::SafeNote.APIKey);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::SafeNote.EnterPassword);
             _typeTable[4] = typeof(global::SafeNote.MainPage);
-            _typeTable[5] = typeof(global::SafeNote.Settings);
+            _typeTable[5] = typeof(global::SafeNote.Notes);
+            _typeTable[6] = typeof(global::SafeNote.Settings);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -184,7 +186,8 @@ namespace SafeNote.SafeNote_XamlTypeInfo
         private object Activate_0_APIKey() { return new global::SafeNote.APIKey(); }
         private object Activate_3_EnterPassword() { return new global::SafeNote.EnterPassword(); }
         private object Activate_4_MainPage() { return new global::SafeNote.MainPage(); }
-        private object Activate_5_Settings() { return new global::SafeNote.Settings(); }
+        private object Activate_5_Notes() { return new global::SafeNote.Notes(); }
+        private object Activate_6_Settings() { return new global::SafeNote.Settings(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -225,9 +228,16 @@ namespace SafeNote.SafeNote_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 5:   //  SafeNote.Settings
+            case 5:   //  SafeNote.Notes
                 userType = new global::SafeNote.SafeNote_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_Settings;
+                userType.Activator = Activate_5_Notes;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  SafeNote.Settings
+                userType = new global::SafeNote.SafeNote_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_Settings;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

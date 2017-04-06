@@ -24,6 +24,7 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Text" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="FontSize" />
       <RootProperty Name="Width" />
       <RootEvent Name="TextChanged" />
     </RootType>
@@ -99,6 +100,7 @@
     <RootType FullName="SafeNote.EnterPassword" />
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="SafeNote.MainPage" />
+    <RootType FullName="SafeNote.Notes" />
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="Content" />
     </RootType>
