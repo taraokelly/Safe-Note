@@ -228,30 +228,32 @@ namespace SafeNote
         #region Navigation Handlers
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+
             await SetupUiAsync();
 
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-            if ((string)localSettings.Values["UserDetails"] == null || (string)localSettings.Values["UserDetails"] == "false")
-            {
-                relocate = true;
-                localSettings.Values["UserDetails"] = "false";
-                localSettings.Values["faceID"] = "";
-                localSettings.Values["password"] = "";
-                localSettings.Values["key"] = "";
-                //hide buttons for verification
-                //show logo and get started button
-                settingsUI();
+             if ((string)localSettings.Values["UserDetails"] == null || (string)localSettings.Values["UserDetails"] == "false")
+             { 
+                 relocate = true;
+                 localSettings.Values["UserDetails"] = "false";
+                 localSettings.Values["faceID"] = "";
+                 localSettings.Values["password"] = "";
+                 localSettings.Values["key"] = ""; 
+                 //hide buttons for verification
+                 //show logo and get started button
+                 settingsUI();
             }
             else
-            {
-                //start preview and user verification
-                await StartPreviewAsync();
+            { 
+              //start preview and user verification
+              await StartPreviewAsync();
 
-                await GetPreviewFrameAsSoftwareBitmapAsync();
-            }
+              await GetPreviewFrameAsSoftwareBitmapAsync();
+
+            } 
         }
+
         protected async override void OnNavigatedFrom(NavigationEventArgs e)
         {
             if (!relocate)

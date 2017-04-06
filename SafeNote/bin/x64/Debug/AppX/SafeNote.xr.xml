@@ -53,24 +53,25 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Children" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
-      <RootProperty Name="NavigateUri" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Content" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="IsEnabled" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Name" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="MinHeight" />
       <RootProperty Name="MinWidth" />
       <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
+      <RootProperty Name="NavigateUri" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="SafeNote.APIKey" />
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
@@ -102,6 +103,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Source" />
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="SafeNote.Settings" />

@@ -56,13 +56,24 @@ namespace SafeNote
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
             localSettings.Values["key"] = keyBox.Text;
-            this.Frame.Navigate(typeof(Settings), null);
+
+            next.IsEnabled = true;
         }
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
             keyBox.Text = localSettings.Values["key"].ToString();
+
+            if((string)localSettings.Values["key"] != "")
+            {
+                next.IsEnabled = true;
+            }
+        }
+
+        private void continue_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings), null);
         }
     }
 }

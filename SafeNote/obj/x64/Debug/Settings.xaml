@@ -50,7 +50,7 @@
                         <SymbolIcon Symbol="Camera"/>
                     </Viewbox>
                 </Button>
-                <Image x:ConnectionId='2' x:Name="image" Height="130" Width="130" HorizontalAlignment="Center"/>
+                <Image x:ConnectionId='2' x:Name="image" Height="130" Width="130" Source="/Assets/personplaceholder.jpg" HorizontalAlignment="Center"/>
                 <TextBox x:ConnectionId='3' x:Name="imageErrorBox" Foreground="Red" Height="40" Width="350"  BorderThickness="0" IsReadOnly="True"/>
                 
                 <!-- </StackPanel> -->

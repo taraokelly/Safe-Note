@@ -27,14 +27,25 @@ namespace SafeNote
     {
         #region Global Variables
 
-        bool passwordValid, passwordCheckValid, photoValid;
+        String faceID;
+
+        // Get the app's local folder.
+        StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        StorageFile newFile;
+
+        // Create a new subfolder in the current folder.
+        // Raise an exception if the folder already exists.
+        string fileName = "user.jpg";
+
+        bool passwordValid = true, passwordCheckValid = true, photoValid = true;
 
         CameraCaptureUI captureUI = new CameraCaptureUI();
         StorageFile photo;
+        SoftwareBitmap softwareBitmap;
         IRandomAccessStream imageStream;
 
-        const string APIKEY = "fe355e1480a24916aa8a641b6cf29c7b";
-        FaceServiceClient serviceClient = new FaceServiceClient(APIKEY);
+        //const string APIKEY = "fe355e1480a24916aa8a641b6cf29c7b";
+        FaceServiceClient serviceClient;
 
         #endregion
 
@@ -67,7 +78,7 @@ namespace SafeNote
                 {
                     imageStream = await photo.OpenAsync(FileAccessMode.Read);
                     BitmapDecoder decoder = await BitmapDecoder.CreateAsync(imageStream);
-                    SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
+                    softwareBitmap = await decoder.GetSoftwareBitmapAsync();
 
                     SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
                     SoftwareBitmapSource bitmapSource = new SoftwareBitmapSource();
@@ -80,7 +91,7 @@ namespace SafeNote
  
                         if (faces.Length > 0)
                         {     
-                            var id = faces[0].FaceId;
+                            faceID = faces[0].FaceId.ToString();
                             // save FaceID here
                             //imageErrorBox.Text = "Face Detected.";
                             photoValid = true;
@@ -101,7 +112,7 @@ namespace SafeNote
                     {
                         // disable submit button
                         submit.IsEnabled = false;
-                        imageErrorBox.Text = "Error detecting face. Have you entered the correct key?";
+                        imageErrorBox.Text = "Error detecting face. Invalid key has been entered.";
                     }
                 }
             }
@@ -113,9 +124,62 @@ namespace SafeNote
 
         }
 
-        private void submit_Click(object sender, RoutedEventArgs e)
+        private async void submit_Click(object sender, RoutedEventArgs e)
         {
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
+            localSettings.Values["password"] = passwordBox.Password;
+            localSettings.Values["UserDetails"] = "true";
+            localSettings.Values["faceID"] = faceID;
+
+            newFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+
+            SaveSoftwareBitmapToFile(softwareBitmap, newFile);
+        }
+
+        #endregion
+
+        #region General Functions
+
+        private async void SaveSoftwareBitmapToFile(SoftwareBitmap softwareBitmap, StorageFile outputFile)
+        {
+            using (IRandomAccessStream stream = await outputFile.OpenAsync(FileAccessMode.ReadWrite))
+            {
+                // Create an encoder with the desired format
+                BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.JpegEncoderId, stream);
+
+                // Set the software bitmap
+                encoder.SetSoftwareBitmap(softwareBitmap);
+
+                // Set additional encoding parameters, if needed
+                encoder.BitmapTransform.ScaledWidth = 320;
+                encoder.BitmapTransform.ScaledHeight = 240;
+                encoder.BitmapTransform.InterpolationMode = BitmapInterpolationMode.Fant;
+                encoder.IsThumbnailGenerated = true;
+
+                try
+                {
+                    await encoder.FlushAsync();
+                }
+                catch (Exception err)
+                {
+                    switch (err.HResult)
+                    {
+                        case unchecked((int)0x88982F81): 
+                            encoder.IsThumbnailGenerated = false;
+                            break;
+                        default:
+                            throw err;
+                    }
+                }
+
+                if (encoder.IsThumbnailGenerated == false)
+                {
+                    await encoder.FlushAsync();
+                }
+
+
+            }
         }
 
         #endregion
@@ -174,10 +238,28 @@ namespace SafeNote
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            passwordValid = false;
-            passwordCheckValid = false;
-            photoValid = false;
-            submit.IsEnabled = false;
+
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            if ((string)localSettings.Values["UserDetails"] != "false")
+            {
+                passwordBox.Password = localSettings.Values["password"].ToString();
+
+                checkPasswordBox.Password = localSettings.Values["password"].ToString();
+
+                image.Source = new BitmapImage(new Uri(localFolder.Path + "/"+ fileName, UriKind.Absolute));
+
+                serviceClient = new FaceServiceClient(localSettings.Values["key"].ToString());
+
+
+            }
+            else
+            {
+                passwordValid = false;
+                passwordCheckValid = false;
+                photoValid = false;
+                submit.IsEnabled = false;
+            }
         }
 
         #endregion

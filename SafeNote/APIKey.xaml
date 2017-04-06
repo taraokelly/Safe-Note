@@ -31,5 +31,8 @@
             <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center" Background="Green" Foreground="White" IsEnabled="False" BorderBrush="DarkGreen" Click="submit_Click"/>
 
         </StackPanel>
+        
+        <!--Continue Button-->
+        <Button x:Name="next" Content="CONTINUE" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,10,10" Background="Green" Foreground="White" IsEnabled="False" BorderBrush="DarkGreen" Click="continue_Click"/>
     </Grid>
 </Page>
