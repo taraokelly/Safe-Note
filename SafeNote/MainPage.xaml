@@ -1,6 +1,5 @@
 ﻿<!-- Tara O'Kelly -G00322214.
-     Safe Note. Third Year, Mobile Application Development 2, Software Development GMIT. 
-     The following code has been adapted from https://github.com/Microsoft/Windows-universal-samples -->
+     Safe Note. Third Year, Mobile Application Development 2, Software Development GMIT.  -->
     
     <Page
     x:Class="SafeNote.MainPage"

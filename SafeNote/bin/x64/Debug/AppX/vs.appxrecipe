@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-06T19:39:48.239</Modified>
+      <Modified>2017-04-06T20:39:22.434</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.exe">
       <PackagePath>entrypoint\SafeNote.exe</PackagePath>
-      <Modified>2017-04-06T19:39:47.772</Modified>
+      <Modified>2017-04-06T20:39:21.944</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -512,7 +512,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.xr.xml">
       <PackagePath>SafeNote.xr.xml</PackagePath>
-      <Modified>2017-04-06T14:55:42.870</Modified>
+      <Modified>2017-04-06T20:31:13.274</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -521,11 +521,11 @@
     <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-06T19:33:39.456</Modified>
+      <Modified>2017-04-06T20:31:14.196</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\SafeNote.exe">
       <PackagePath>SafeNote.exe</PackagePath>
-      <Modified>2017-04-06T19:39:48.233</Modified>
+      <Modified>2017-04-06T20:39:22.428</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

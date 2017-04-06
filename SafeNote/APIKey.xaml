@@ -18,6 +18,14 @@
                 <Setter Property="Background" Value="White"></Setter>
                 <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
             </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10,40"/>
+                <Setter Property="MinWidth" Value="80"/>
+                <Setter Property="MinHeight" Value="40"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="Green"/>
+                <Setter Property="BorderBrush" Value="DarkGreen"/>
+            </Style>
         </Grid.Resources>
 
         <StackPanel VerticalAlignment="Center">
@@ -28,7 +36,7 @@
             <HyperlinkButton NavigateUri="https://www.microsoft.com/cognitive-services/en-us/sign-up" HorizontalAlignment="Center">Don't have a key? Sign up for free here.</HyperlinkButton>
             
             <!--Submit Button-->
-            <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center" Background="Green" Foreground="White" IsEnabled="False" BorderBrush="DarkGreen" Click="submit_Click"/>
+            <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center" IsEnabled="False" Click="submit_Click"/>
 
         </StackPanel>
         

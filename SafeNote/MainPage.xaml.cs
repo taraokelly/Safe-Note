@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
@@ -35,8 +34,6 @@ using Microsoft.ProjectOxford.Face.Contract;
 using System.IO;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Threading;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace SafeNote
 {
@@ -181,12 +178,12 @@ namespace SafeNote
 
                                             if (res.IsIdentical == true)
                                             {
-                                                var dialog = new MessageDialog("Authentication Successful!.");
+                                                var dialog = new MessageDialog("Authentication Successful!");
                                                 await dialog.ShowAsync();
                                             }
                                             else
                                             {
-                                                var dialog = new MessageDialog("Intruder Alert!.");
+                                                var dialog = new MessageDialog("Intruder Alert!");
                                                 await dialog.ShowAsync();
                                             }
                                         }
@@ -257,12 +254,9 @@ namespace SafeNote
             catch (UnauthorizedAccessException)
             {
                 // This will be thrown if the user denied access to the camera in privacy settings
-                System.Diagnostics.Debug.WriteLine("The app was denied access to the camera");
+                outputBox.Text = "The app was denied access to the camera";
             }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("MediaCapture initialization failed. {0}", ex.Message);
-            }
+            catch (Exception){ }
         }
 
         private async Task CleanupPreviewAsync()

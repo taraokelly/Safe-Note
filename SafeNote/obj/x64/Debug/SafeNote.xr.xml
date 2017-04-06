@@ -30,9 +30,9 @@
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="MinHeight" />
       <RootProperty Name="Margin" />
       <RootProperty Name="MinWidth" />
+      <RootProperty Name="MinHeight" />
       <RootProperty Name="MaxHeight" />
       <RootProperty Name="MaxWidth" />
     </RootType>
@@ -45,14 +45,6 @@
     <RootType FullName="Windows.UI.Xaml.UIElement">
       <RootProperty Name="RenderTransformOrigin" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Setter">
-      <RootProperty Name="Property" />
-      <RootProperty Name="Value" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Children" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
@@ -63,10 +55,20 @@
       <RootProperty Name="IsEnabled" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Name" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="MinHeight" />
       <RootProperty Name="MinWidth" />
       <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Setter">
+      <RootProperty Name="Property" />
+      <RootProperty Name="Value" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
       <RootProperty Name="NavigateUri" />

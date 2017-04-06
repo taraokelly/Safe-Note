@@ -13,19 +13,21 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace SafeNote
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class APIKey : Page
     {
+        #region constructor
+
         public APIKey()
         {
             this.InitializeComponent();
         }
+
+        #endregion constructor
+
+        #region Property Changed Events
 
         private void keyBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -51,6 +53,10 @@ namespace SafeNote
             }
         }
 
+        #endregion
+
+        #region Click Events
+
         private void submit_Click(object sender, RoutedEventArgs e)
         {
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
@@ -59,6 +65,16 @@ namespace SafeNote
 
             next.IsEnabled = true;
         }
+
+        private void continue_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings), null);
+        }
+
+        #endregion
+
+        #region Navigation Events
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
@@ -71,9 +87,6 @@ namespace SafeNote
             }
         }
 
-        private void continue_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Settings), null);
-        }
+        #endregion
     }
 }
