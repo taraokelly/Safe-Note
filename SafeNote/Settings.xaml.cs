@@ -33,8 +33,7 @@ namespace SafeNote
         StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
         StorageFile newFile;
 
-        // Create a new subfolder in the current folder.
-        // Raise an exception if the folder already exists.
+        // Name of file.
         string fileName = "user.jpg";
 
         bool passwordValid = true, passwordCheckValid = true, photoValid = true;
@@ -44,7 +43,6 @@ namespace SafeNote
         SoftwareBitmap softwareBitmap;
         IRandomAccessStream imageStream;
 
-        //const string APIKEY = "fe355e1480a24916aa8a641b6cf29c7b";
         FaceServiceClient serviceClient;
 
         #endregion
@@ -76,6 +74,8 @@ namespace SafeNote
                 }
                 else
                 {
+
+
                     imageStream = await photo.OpenAsync(FileAccessMode.Read);
                     BitmapDecoder decoder = await BitmapDecoder.CreateAsync(imageStream);
                     softwareBitmap = await decoder.GetSoftwareBitmapAsync();

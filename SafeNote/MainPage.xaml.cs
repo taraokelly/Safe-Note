@@ -29,7 +29,12 @@ using Windows.Media.FaceAnalysis;
 using Windows.UI;
 using System.Collections.Generic;
 using Windows.UI.Popups;
-using System.IO.IsolatedStorage;
+using Microsoft.ProjectOxford.Face;
+using System.Collections.Concurrent;
+using Microsoft.ProjectOxford.Face.Contract;
+using System.IO;
+using Windows.UI.Xaml.Media.Imaging;
+using OpenCvSharp;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -42,8 +47,26 @@ namespace SafeNote
     {
         #region Global Variables
 
-        //private IsolatedStorageFile appSettings = IsolatedStorageFile.;
-        
+        // Get the app's local folder.
+        StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        StorageFile newFile;
+
+        // Create a new subfolder in the current folder.
+        // Raise an exception if the folder already exists.
+        string fileName = "authentication.jpg";
+
+        StorageFile photo;
+
+        CameraCaptureUI captureUI = new CameraCaptureUI();
+
+        // queue that will contain the API call tasks. 
+        BlockingCollection<Task> taskQueue = new BlockingCollection<Task>();
+
+        IRandomAccessStream imageStream;
+        FaceServiceClient serviceClient;
+
+        String id;
+
         bool relocate = false;
 
         MediaCapture _mediaCapture;
@@ -76,28 +99,130 @@ namespace SafeNote
             Application.Current.Exit();
         }
 
+/*========================================================================================================================================================*/
+        private async void SaveSoftwareBitmapToFile(SoftwareBitmap softwareBitmap, StorageFile outputFile)
+        {
+            using (IRandomAccessStream stream = await outputFile.OpenAsync(FileAccessMode.ReadWrite))
+            {
+                // Create an encoder with the desired format
+                BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.JpegEncoderId, stream);
+
+                // Set the software bitmap
+                encoder.SetSoftwareBitmap(softwareBitmap);
+
+                // Set additional encoding parameters, if needed
+                encoder.BitmapTransform.ScaledWidth = 320;
+                encoder.BitmapTransform.ScaledHeight = 240;
+                encoder.BitmapTransform.InterpolationMode = BitmapInterpolationMode.Fant;
+                encoder.IsThumbnailGenerated = true;
+
+                try
+                {
+                    await encoder.FlushAsync();
+                }
+                catch (Exception err)
+                {
+                    switch (err.HResult)
+                    {
+                        case unchecked((int)0x88982F81):
+                            encoder.IsThumbnailGenerated = false;
+                            break;
+                        default:
+                            throw err;
+                    }
+                }
+
+                if (encoder.IsThumbnailGenerated == false)
+                {
+                    await encoder.FlushAsync();
+                }
+
+
+            }
+        }
+/*========================================================================================================================================================*/
+
+
         #endregion
 
         #region Capture Frame
         private async Task GetPreviewFrameAsSoftwareBitmapAsync()
         {
+           while(true)
+            {
+            //await Task.Delay(2000);
             // Get information about the preview
+
+            //var d = new MessageDialog("In Frame.");
+            //await d.ShowAsync();
+
             var previewProperties = _mediaCapture.VideoDeviceController.GetMediaStreamProperties(MediaStreamType.VideoPreview) as VideoEncodingProperties;
 
-            // Create the video frame to request a SoftwareBitmap preview frame
-            var videoFrame = new VideoFrame(BitmapPixelFormat.Bgra8, (int)previewProperties.Width, (int)previewProperties.Height);
+                    // Create the video frame to request a SoftwareBitmap preview frame
+                    var videoFrame = new VideoFrame(BitmapPixelFormat.Bgra8, (int)previewProperties.Width, (int)previewProperties.Height);
 
-            // Capture the preview frame
-            using (var currentFrame = await _mediaCapture.GetPreviewFrameAsync(videoFrame))
-            {
-                // Collect the resulting frame
-                SoftwareBitmap previewFrame = currentFrame.SoftwareBitmap;
+                    // Capture the preview frame
+                    using (var currentFrame = await _mediaCapture.GetPreviewFrameAsync(videoFrame))
+                    {
 
-                // Add a simple green filter effect to the SoftwareBitmap
-                //EditPixels(previewFrame);
-                //var dialog = new MessageDialog("Frame captured.");
-                //await dialog.ShowAsync();
-               // Debug.WriteLine("Frame captured.");
+                            //d= new MessageDialog("Frame Captured.");
+                            //await d.ShowAsync();
+                            // Collect the resulting frame
+                            SoftwareBitmap bitmap = currentFrame.SoftwareBitmap;
+
+                            newFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+
+                            //var d = new MessageDialog("Checking For Face...");
+                            //await d.ShowAsync();
+
+                            SaveSoftwareBitmapToFile(bitmap, newFile);
+                           // var d = new MessageDialog("Checking For Face...");
+                            //await d.ShowAsync();
+                            await Task.Delay(1000);
+                    }
+                    using (Stream s = File.OpenRead(newFile.Path))
+                    {
+                        try
+                        {
+                            Face[] faces = await serviceClient.DetectAsync(s);
+
+                            if (faces.Length > 0)
+                            {
+                                
+                                outputBox.Text = "Face Detected.";
+
+                             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+                             try
+                             {
+                                 VerifyResult res = await serviceClient.VerifyAsync(new Guid(faces[0].FaceId.ToString()), (new Guid((string)localSettings.Values["faceID"])));
+
+                                 if (res.IsIdentical == true)
+                                 {
+                                     var dialog = new MessageDialog("Authentication Successful!.");
+                                     await dialog.ShowAsync();
+                                 }
+                                 else
+                                 {
+                                     var dialog = new MessageDialog("Intruder Alert!.");
+                                     await dialog.ShowAsync();
+                                 }
+                             }
+                             catch
+                             {
+                                 outputBox.Text = "Error detecting face.";
+                             }
+                        }
+                        else
+                            {
+                                outputBox.Text = "Error detecting face. Are you visibile in the photo? ";
+                            }
+                        }
+                        catch
+                        {
+                            outputBox.Text = "Invalid key or quota had been used. Please enter password.";
+                        }
+                    }
             }
         }
         #endregion
@@ -106,7 +231,6 @@ namespace SafeNote
 
         private void Password_Click(object sender, RoutedEventArgs e)
         {
-            //CloseApp();
             this.Frame.Navigate(typeof(EnterPassword), null);
         }
 
@@ -205,6 +329,9 @@ namespace SafeNote
             // Attempt to lock page to landscape orientation to prevent the CaptureElement from rotating, as this gives a better experience
             DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
 
+            // Set the MediaCapture to a variable in App.xaml.cs to handle suspension.
+            //(App.Current as App).MediaCapture = _mediaCapture;
+
             // Hide the status bar
             if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
             {
@@ -245,11 +372,13 @@ namespace SafeNote
                  settingsUI();
             }
             else
-            { 
-              //start preview and user verification
-              await StartPreviewAsync();
+            {
+                serviceClient = new FaceServiceClient(localSettings.Values["key"].ToString());
 
-              await GetPreviewFrameAsSoftwareBitmapAsync();
+                //start preview and user verification
+                await StartPreviewAsync();
+
+                await GetPreviewFrameAsSoftwareBitmapAsync();
 
             } 
         }

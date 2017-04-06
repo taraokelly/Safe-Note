@@ -2,7 +2,8 @@
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
     "Microsoft.ProjectOxford.Common": "1.0.324",
-    "Microsoft.ProjectOxford.Face": "1.2.5"
+    "Microsoft.ProjectOxford.Face": "1.2.5",
+    "OpenCvSharp3-AnyCPU": "3.2.0.20170324"
   },
   "frameworks": {
     "uap10.0": {}

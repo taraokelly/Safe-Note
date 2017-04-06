@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Capture;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -31,6 +32,8 @@ namespace SafeNote
             this.InitializeComponent();
            // this.Suspending += OnSuspending;
         }
+
+        public MediaCapture MediaCapture { get; internal set; }
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

@@ -341,6 +341,20 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
+      "OpenCvSharp3-AnyCPU/3.2.0.20170324": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+        },
+        "compile": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -2231,6 +2245,20 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
+      "OpenCvSharp3-AnyCPU/3.2.0.20170324": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+        },
+        "compile": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        }
+      },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -4036,6 +4064,20 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
+      "OpenCvSharp3-AnyCPU/3.2.0.20170324": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+        },
+        "compile": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        }
+      },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -5806,6 +5848,20 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        }
+      },
+      "OpenCvSharp3-AnyCPU/3.2.0.20170324": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+        },
+        "compile": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -7616,6 +7672,20 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
+      "OpenCvSharp3-AnyCPU/3.2.0.20170324": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+        },
+        "compile": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        }
+      },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -9386,6 +9456,20 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        }
+      },
+      "OpenCvSharp3-AnyCPU/3.2.0.20170324": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+        },
+        "compile": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -11194,6 +11278,20 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        }
+      },
+      "OpenCvSharp3-AnyCPU/3.2.0.20170324": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+        },
+        "compile": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OpenCvSharp.Blob.dll": {},
+          "lib/uap10.0/OpenCvSharp.dll": {}
         }
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
@@ -13491,6 +13589,68 @@
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "tools/install.ps1"
+      ]
+    },
+    "OpenCvSharp3-AnyCPU/3.2.0.20170324": {
+      "sha512": "nW+pEmHfWxwRXMdJbUi0J0GLDX7SrqewVQ+/RW5ofdnpeOx1liVGz3zBj36d1e+xPY9cgMgGMpk++ux8hYC9dg==",
+      "type": "package",
+      "path": "opencvsharp3-anycpu/3.2.0.20170324",
+      "files": [
+        "NativeDlls/x64/OpenCvSharpExtern.dll",
+        "NativeDlls/x64/opencv_ffmpeg320_64.dll",
+        "NativeDlls/x86/OpenCvSharpExtern.dll",
+        "NativeDlls/x86/opencv_ffmpeg320.dll",
+        "build/OpenCvSharp3-AnyCPU.props",
+        "lib/net20/OpenCvSharp.Blob.dll",
+        "lib/net20/OpenCvSharp.Blob.pdb",
+        "lib/net20/OpenCvSharp.Blob.xml",
+        "lib/net20/OpenCvSharp.dll",
+        "lib/net20/OpenCvSharp.pdb",
+        "lib/net20/OpenCvSharp.xml",
+        "lib/net40/OpenCvSharp.Blob.dll",
+        "lib/net40/OpenCvSharp.Blob.pdb",
+        "lib/net40/OpenCvSharp.Blob.xml",
+        "lib/net40/OpenCvSharp.Extensions.dll",
+        "lib/net40/OpenCvSharp.Extensions.pdb",
+        "lib/net40/OpenCvSharp.Extensions.xml",
+        "lib/net40/OpenCvSharp.UserInterface.dll",
+        "lib/net40/OpenCvSharp.UserInterface.pdb",
+        "lib/net40/OpenCvSharp.UserInterface.xml",
+        "lib/net40/OpenCvSharp.dll",
+        "lib/net40/OpenCvSharp.pdb",
+        "lib/net40/OpenCvSharp.xml",
+        "lib/net46/OpenCvSharp.Blob.dll",
+        "lib/net46/OpenCvSharp.Blob.pdb",
+        "lib/net46/OpenCvSharp.Blob.xml",
+        "lib/net46/OpenCvSharp.Extensions.dll",
+        "lib/net46/OpenCvSharp.Extensions.pdb",
+        "lib/net46/OpenCvSharp.Extensions.xml",
+        "lib/net46/OpenCvSharp.UserInterface.dll",
+        "lib/net46/OpenCvSharp.UserInterface.pdb",
+        "lib/net46/OpenCvSharp.UserInterface.xml",
+        "lib/net46/OpenCvSharp.dll",
+        "lib/net46/OpenCvSharp.pdb",
+        "lib/net46/OpenCvSharp.xml",
+        "lib/netcoreapp1.0/OpenCvSharp.Blob.dll",
+        "lib/netcoreapp1.0/OpenCvSharp.Blob.pdb",
+        "lib/netcoreapp1.0/OpenCvSharp.Blob.xml",
+        "lib/netcoreapp1.0/OpenCvSharp.dll",
+        "lib/netcoreapp1.0/OpenCvSharp.pdb",
+        "lib/netcoreapp1.0/OpenCvSharp.xml",
+        "lib/netstandard1.6/OpenCvSharp.Blob.dll",
+        "lib/netstandard1.6/OpenCvSharp.Blob.pdb",
+        "lib/netstandard1.6/OpenCvSharp.Blob.xml",
+        "lib/netstandard1.6/OpenCvSharp.dll",
+        "lib/netstandard1.6/OpenCvSharp.pdb",
+        "lib/netstandard1.6/OpenCvSharp.xml",
+        "lib/uap10.0/OpenCvSharp.Blob.dll",
+        "lib/uap10.0/OpenCvSharp.Blob.pdb",
+        "lib/uap10.0/OpenCvSharp.Blob.xml",
+        "lib/uap10.0/OpenCvSharp.dll",
+        "lib/uap10.0/OpenCvSharp.pdb",
+        "lib/uap10.0/OpenCvSharp.xml",
+        "opencvsharp3-anycpu.3.2.0.20170324.nupkg.sha512",
+        "opencvsharp3-anycpu.nuspec"
       ]
     },
     "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -16275,7 +16435,8 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
       "Microsoft.ProjectOxford.Common >= 1.0.324",
-      "Microsoft.ProjectOxford.Face >= 1.2.5"
+      "Microsoft.ProjectOxford.Face >= 1.2.5",
+      "OpenCvSharp3-AnyCPU >= 3.2.0.20170324"
     ],
     "UAP,Version=v10.0": []
   },

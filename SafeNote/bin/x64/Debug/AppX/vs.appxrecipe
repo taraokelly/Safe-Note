@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-06T00:09:31.162</Modified>
+      <Modified>2017-04-06T14:25:31.316</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.exe">
       <PackagePath>entrypoint\SafeNote.exe</PackagePath>
-      <Modified>2017-04-06T00:09:30.647</Modified>
+      <Modified>2017-04-06T14:25:30.776</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -115,6 +115,14 @@
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Newtonsoft.Json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2016-06-13T22:06:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\OpenCvSharp3-AnyCPU\3.2.0.20170324\lib\uap10.0\OpenCvSharp.Blob.dll">
+      <PackagePath>OpenCvSharp.Blob.dll</PackagePath>
+      <Modified>2017-03-24T07:58:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\OpenCvSharp3-AnyCPU\3.2.0.20170324\lib\uap10.0\OpenCvSharp.dll">
+      <PackagePath>OpenCvSharp.dll</PackagePath>
+      <Modified>2017-03-24T07:58:20.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
@@ -525,7 +533,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\SafeNote.exe">
       <PackagePath>SafeNote.exe</PackagePath>
-      <Modified>2017-04-06T00:09:31.151</Modified>
+      <Modified>2017-04-06T14:25:31.310</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
