@@ -49,7 +49,7 @@
         <TextBox x:Name="outputBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
         
         <!--Enter Password Button-->
-        <Button Name="passwordButton" Click="Password_Click" IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Button Name="passwordButton" Click="Password_Click" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Viewbox>
                 <SymbolIcon Symbol="Keyboard"/>
             </Viewbox>

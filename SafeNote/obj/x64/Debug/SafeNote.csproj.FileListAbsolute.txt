@@ -210,11 +210,3 @@ C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\De
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.g.cs
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.xaml
 C:\Users\Tara\Documents\Visual Studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\APIKey.xbf
-C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
-C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\dll\x86\opencv_ffmpeg320.dll
-C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
-C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\dll\x64\opencv_ffmpeg320_64.dll
-C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\OpenCvSharp.Blob.dll
-C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\OpenCvSharp.Blob.pdb
-C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\OpenCvSharp.dll
-C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\OpenCvSharp.pdb

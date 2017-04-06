@@ -49,7 +49,7 @@
         <TextBox x:ConnectionId='2' x:Name="outputBox" HorizontalAlignment="Center" Margin="89,20,71,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
         
         <!--Enter Password Button-->
-        <Button x:ConnectionId='3' Name="passwordButton"                        IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Button x:ConnectionId='3' Name="passwordButton"                        IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Viewbox>
                 <SymbolIcon Symbol="Keyboard"/>
             </Viewbox>

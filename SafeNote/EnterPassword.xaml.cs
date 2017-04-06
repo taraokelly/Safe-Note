@@ -31,5 +31,14 @@ namespace SafeNote
         {
             this.Frame.Navigate(typeof(MainPage), null);
         }
+
+        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Camera.IsEnabled = true;
+        }
     }
 }

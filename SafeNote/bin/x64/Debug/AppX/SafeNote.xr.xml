@@ -30,9 +30,9 @@
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="MinHeight" />
       <RootProperty Name="Margin" />
       <RootProperty Name="MinWidth" />
-      <RootProperty Name="MinHeight" />
       <RootProperty Name="MaxHeight" />
       <RootProperty Name="MaxWidth" />
     </RootType>
@@ -78,6 +78,12 @@
       <RootProperty Name="Color" />
       <RootProperty Name="Opacity" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+      <RootProperty Name="Header" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="MaxLength" />
+      <RootEvent Name="PasswordChanged" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
       <RootProperty Name="Child" />
     </RootType>
@@ -91,12 +97,6 @@
     <RootType FullName="SafeNote.EnterPassword" />
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="SafeNote.MainPage" />
-    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
-      <RootProperty Name="Header" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="MaxLength" />
-      <RootEvent Name="PasswordChanged" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="Content" />
     </RootType>

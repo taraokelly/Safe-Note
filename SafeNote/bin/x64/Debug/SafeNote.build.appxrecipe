@@ -85,12 +85,6 @@
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Newtonsoft.Json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\OpenCvSharp3-AnyCPU\3.2.0.20170324\lib\uap10.0\OpenCvSharp.Blob.dll">
-      <PackagePath>OpenCvSharp.Blob.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\OpenCvSharp3-AnyCPU\3.2.0.20170324\lib\uap10.0\OpenCvSharp.dll">
-      <PackagePath>OpenCvSharp.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
     </AppxPackagedFile>

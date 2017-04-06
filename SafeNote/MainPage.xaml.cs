@@ -34,18 +34,24 @@ using System.Collections.Concurrent;
 using Microsoft.ProjectOxford.Face.Contract;
 using System.IO;
 using Windows.UI.Xaml.Media.Imaging;
-using OpenCvSharp;
+using System.Threading;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace SafeNote
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         #region Global Variables
+
+        bool relocate = false;
+        bool authenticating = true;
+        bool _isPreviewing;
+
+        FaceServiceClient serviceClient;
+
+        // Declare a System.Threading.CancellationTokenSource.  
+        CancellationTokenSource cts;
 
         // Get the app's local folder.
         StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
@@ -55,22 +61,8 @@ namespace SafeNote
         // Raise an exception if the folder already exists.
         string fileName = "authentication.jpg";
 
-        StorageFile photo;
-
         CameraCaptureUI captureUI = new CameraCaptureUI();
-
-        // queue that will contain the API call tasks. 
-        BlockingCollection<Task> taskQueue = new BlockingCollection<Task>();
-
-        IRandomAccessStream imageStream;
-        FaceServiceClient serviceClient;
-
-        String id;
-
-        bool relocate = false;
-
-        MediaCapture _mediaCapture;
-        bool _isPreviewing;
+        MediaCapture _mediaCapture;        
 
         DisplayRequest _displayRequest;
 
@@ -92,14 +84,11 @@ namespace SafeNote
 
         #region General Functions
 
-        private void doSuff() { }
-
         private void CloseApp()
         {
             Application.Current.Exit();
         }
 
-/*========================================================================================================================================================*/
         private async void SaveSoftwareBitmapToFile(SoftwareBitmap softwareBitmap, StorageFile outputFile)
         {
             using (IRandomAccessStream stream = await outputFile.OpenAsync(FileAccessMode.ReadWrite))
@@ -140,82 +129,77 @@ namespace SafeNote
 
             }
         }
-/*========================================================================================================================================================*/
 
 
         #endregion
 
-        #region Capture Frame
-        private async Task GetPreviewFrameAsSoftwareBitmapAsync()
+        #region Capture Frame, Detection and Verification
+
+        private async Task GetPreviewFrameAsSoftwareBitmapAsync(CancellationToken ct)
         {
-           while(true)
+            while (authenticating)
             {
-            //await Task.Delay(2000);
-            // Get information about the preview
+                var previewProperties = _mediaCapture.VideoDeviceController.GetMediaStreamProperties(MediaStreamType.VideoPreview) as VideoEncodingProperties;
 
-            //var d = new MessageDialog("In Frame.");
-            //await d.ShowAsync();
+                // Create the video frame to request a SoftwareBitmap preview frame
+                var videoFrame = new VideoFrame(BitmapPixelFormat.Bgra8, (int)previewProperties.Width, (int)previewProperties.Height);
 
-            var previewProperties = _mediaCapture.VideoDeviceController.GetMediaStreamProperties(MediaStreamType.VideoPreview) as VideoEncodingProperties;
-
-                    // Create the video frame to request a SoftwareBitmap preview frame
-                    var videoFrame = new VideoFrame(BitmapPixelFormat.Bgra8, (int)previewProperties.Width, (int)previewProperties.Height);
-
+                if (authenticating)
+                {
                     // Capture the preview frame
                     using (var currentFrame = await _mediaCapture.GetPreviewFrameAsync(videoFrame))
                     {
+                        // Collect the resulting frame
+                        SoftwareBitmap bitmap = currentFrame.SoftwareBitmap;
 
-                            //d= new MessageDialog("Frame Captured.");
-                            //await d.ShowAsync();
-                            // Collect the resulting frame
-                            SoftwareBitmap bitmap = currentFrame.SoftwareBitmap;
+                        newFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
 
-                            newFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+                        SaveSoftwareBitmapToFile(bitmap, newFile);
 
-                            //var d = new MessageDialog("Checking For Face...");
-                            //await d.ShowAsync();
-
-                            SaveSoftwareBitmapToFile(bitmap, newFile);
-                           // var d = new MessageDialog("Checking For Face...");
-                            //await d.ShowAsync();
-                            await Task.Delay(1000);
+                        await Task.Delay(1000);
                     }
+                }
+                if (authenticating) { 
                     using (Stream s = File.OpenRead(newFile.Path))
                     {
                         try
                         {
-                            Face[] faces = await serviceClient.DetectAsync(s);
+                            if (authenticating) { 
+                                Face[] faces = await serviceClient.DetectAsync(s);
 
-                            if (faces.Length > 0)
-                            {
-                                
-                                outputBox.Text = "Face Detected.";
+                                if (faces.Length > 0)
+                                {
+                                    outputBox.Text = "Face Detected.";
 
-                             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                                    Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-                             try
-                             {
-                                 VerifyResult res = await serviceClient.VerifyAsync(new Guid(faces[0].FaceId.ToString()), (new Guid((string)localSettings.Values["faceID"])));
+                                    try
+                                    {
+                                        if (authenticating)
+                                        {
+                                            VerifyResult res = await serviceClient.VerifyAsync(new Guid(faces[0].FaceId.ToString()), (new Guid((string)localSettings.Values["faceID"])));
 
-                                 if (res.IsIdentical == true)
-                                 {
-                                     var dialog = new MessageDialog("Authentication Successful!.");
-                                     await dialog.ShowAsync();
-                                 }
-                                 else
-                                 {
-                                     var dialog = new MessageDialog("Intruder Alert!.");
-                                     await dialog.ShowAsync();
-                                 }
-                             }
-                             catch
-                             {
-                                 outputBox.Text = "Error detecting face.";
-                             }
-                        }
-                        else
-                            {
-                                outputBox.Text = "Error detecting face. Are you visibile in the photo? ";
+                                            if (res.IsIdentical == true)
+                                            {
+                                                var dialog = new MessageDialog("Authentication Successful!.");
+                                                await dialog.ShowAsync();
+                                            }
+                                            else
+                                            {
+                                                var dialog = new MessageDialog("Intruder Alert!.");
+                                                await dialog.ShowAsync();
+                                            }
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        outputBox.Text = "Error detecting face.";
+                                    }
+                                }
+                                else
+                                {
+                                    outputBox.Text = "Error detecting face. Are you visibile in the photo? ";
+                                }
                             }
                         }
                         catch
@@ -223,8 +207,10 @@ namespace SafeNote
                             outputBox.Text = "Invalid key or quota had been used. Please enter password.";
                         }
                     }
+                }
             }
         }
+
         #endregion
 
         #region Click Events
@@ -253,7 +239,7 @@ namespace SafeNote
 
                     if (cameraDevice == null)
                     {
-                        Debug.WriteLine("No camera device found!");
+                        outputBox.Text = ("No camera device found!");
                         return;
                     }
 
@@ -355,7 +341,6 @@ namespace SafeNote
         #region Navigation Handlers
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-
             await SetupUiAsync();
 
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
@@ -374,12 +359,16 @@ namespace SafeNote
             else
             {
                 serviceClient = new FaceServiceClient(localSettings.Values["key"].ToString());
-
+                cts = new CancellationTokenSource();
                 //start preview and user verification
                 await StartPreviewAsync();
-
-                await GetPreviewFrameAsSoftwareBitmapAsync();
-
+                await Task.Delay(1000);
+                passwordButton.IsEnabled = true;
+                try
+                {
+                    await GetPreviewFrameAsSoftwareBitmapAsync(cts.Token);
+                }
+                catch (OperationCanceledException) { }
             } 
         }
 
@@ -387,11 +376,16 @@ namespace SafeNote
         {
             if (!relocate)
             {
+                cts.Cancel();
+
+                authenticating = false;
+
                 await CleanupPreviewAsync();
 
             }
             await CleanupUiAsync();
         }
+
         #endregion Navigation Handlers
 
         #region Suspension Handlers
