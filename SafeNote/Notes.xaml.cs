@@ -37,6 +37,9 @@ namespace SafeNote
 
             foreach(var item in dataList)
             {
+                item.title = item.title.Replace("\n", String.Empty);
+                item.body = item.body.Replace("\n", String.Empty);
+
                 await FileIO.AppendTextAsync(notes, item.title + Environment.NewLine + item.body + Environment.NewLine);
             }
 
@@ -45,14 +48,16 @@ namespace SafeNote
         {
             notes = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
 
+            title = title.Replace("\n", String.Empty);
+            body = body.Replace("\n", String.Empty);
+
             n = new Note() { title = title, body = body };
 
             dataList.Insert(0, n);
 
             await FileIO.AppendTextAsync(notes, title + Environment.NewLine + body + Environment.NewLine);
-
-
         }
+
         public async void loadNotes()
         {
             notes = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
@@ -73,7 +78,6 @@ namespace SafeNote
                 }
                 count++;
             }
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -117,6 +121,16 @@ namespace SafeNote
             }
         }
 
+        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listView.SelectedItem != null)
+            {
+                newTitle.Text =
+                    "Selected item: " + listView.SelectedItem.ToString();
+                newBody.Text = "Index: " + listView.SelectedIndex.ToString();
+            }
+        }
+
         private void newBody_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (newBody.Text.Trim().Length == 0)
@@ -144,5 +158,10 @@ namespace SafeNote
     {
         public string title { get; set; }
         public string body { get; set; }
+
+        public override string ToString()
+        {
+            return title;
+        }
     }
 }

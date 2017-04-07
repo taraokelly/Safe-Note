@@ -25,13 +25,13 @@
                         <Button x:ConnectionId='4' x:Name="addNote"                       IsEnabled="False" MinWidth="50" Height="40" HorizontalAlignment="Center" Background="Green" Margin="0,10,0,0" Foreground="White" VerticalContentAlignment="Center" BorderBrush="DarkGreen" Content="ADD NOTE"/>
                     </StackPanel>
                 </Grid>
-                <ListView x:ConnectionId='1' x:Name="listView" HorizontalAlignment="Stretch" Height="Auto" Margin="10,30,10,10" VerticalAlignment="Stretch" Width="Auto">
+                <ListView x:ConnectionId='1' x:Name="listView" HorizontalAlignment="Stretch"                                              Height="Auto" Margin="10,30,10,10" VerticalAlignment="Stretch" Width="Auto">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding title}" Foreground="Green" FontSize="30"></TextBlock>
-                                    <TextBlock Text="{Binding body}"  Margin="0,0,0,10"></TextBlock>
+                                    <TextBlock x:Name="itemTitle" Text="{Binding title}" Foreground="Green" FontSize="30"></TextBlock>
+                                    <TextBlock x:Name="bodyTitle" Text="{Binding body}"  Margin="0,0,0,10"></TextBlock>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
