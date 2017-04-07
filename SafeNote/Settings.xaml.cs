@@ -79,15 +79,14 @@ namespace SafeNote
 
                     image.Source = bitmapSource;
 
-                    //DateTime to local var
-                    faceDate = DateTime.Now;
-
                     try
                     {
                         Face[] faces = await serviceClient.DetectAsync(imageStream.AsStream());
- 
+                           
                         if (faces.Length > 0)
                         {
+                            //DateTime to local var
+                            faceDate = DateTime.Now.AddHours(-1);
                             faceID = faces[0].FaceId.ToString();
                             faceIDChanged = true;
                             //imageErrorBox.Text = "Face Detected.";
@@ -102,6 +101,7 @@ namespace SafeNote
                         {
                             // disable submit button
                             submit.IsEnabled = false;
+                            photoValid = false;
                             imageErrorBox.Text = "Error detecting face. Are you visibile in the photo? ";
                         }
                     }
@@ -109,6 +109,7 @@ namespace SafeNote
                     {
                         // disable submit button
                         submit.IsEnabled = false;
+                        photoValid = false;
                         imageErrorBox.Text = "Error detecting face. Invalid key has been entered.";
                     }
                 }
@@ -116,6 +117,7 @@ namespace SafeNote
             catch
             {
                 // disable submit button here
+                photoValid = false;
                 imageErrorBox.Text = "Error taking photo";
             }
 
