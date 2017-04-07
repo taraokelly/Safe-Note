@@ -149,6 +149,8 @@ namespace SafeNote
 
                             if (f.Length > 0)
                             {
+                                var faceDate = DateTime.Now.AddHours(-1);
+                                localSettings.Values["faceExpiryDate"] = faceDate.AddDays(1).ToString();
                                 localSettings.Values["faceID"] = f[0].FaceId.ToString();
                                 outputBox.Text = "FaceID renewed.";
                             }
@@ -192,13 +194,10 @@ namespace SafeNote
                                 {
                                     outputBox.Text = "Face Detected.";
 
-                                    //Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
                                     try
                                     {
                                        if (authenticating)
                                         {
-                                            outputBox.Text = (string)localSettings.Values["faceID"];
                                             VerifyResult res = await serviceClient.VerifyAsync(new Guid(faces[0].FaceId.ToString()), new Guid((string)localSettings.Values["faceID"]));
 
                                              if (res.IsIdentical == true)
