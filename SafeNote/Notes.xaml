@@ -8,7 +8,20 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-        <TextBox Text="Notes" HorizontalAlignment="Center" VerticalAlignment="Top" IsReadOnly="True" BorderThickness="0" Foreground="Green" FontSize="60"/>
+        <StackPanel HorizontalAlignment="Stretch">
+            <TextBox Text="Notes" HorizontalAlignment="Center" VerticalAlignment="Top" IsReadOnly="True" BorderThickness="0" Foreground="Green" FontSize="60"/>
+            <ListView x:Name="listView" HorizontalAlignment="Stretch" Height="Auto" Margin="10,100,10,10" VerticalAlignment="Stretch" Width="Auto">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel>
+                                <TextBlock Text="{Binding title}"></TextBlock>
+                                <TextBlock Text="{Binding body}"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>   
     </Grid>
 </Page>
