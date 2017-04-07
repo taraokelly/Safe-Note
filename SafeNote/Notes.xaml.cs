@@ -24,6 +24,7 @@ namespace SafeNote
         StorageFile notes;
         string fileName = "notes.txt";
         Note n = new Note();
+        bool titleValid = false, bodyValid = false;
 
         public Notes()
         {
@@ -42,7 +43,7 @@ namespace SafeNote
         }
         public async void saveNote(string title, string body)
         {
-            notes = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+            notes = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
 
             n = new Note() { title = title, body = body };
 
@@ -82,6 +83,7 @@ namespace SafeNote
             }
 
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             listView.ItemsSource = dataList;
@@ -92,6 +94,57 @@ namespace SafeNote
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void addNote_Click(object sender, RoutedEventArgs e)
+        {
+            saveNote(newTitle.Text, newBody.Text);
+            newTitle.Text = "";
+            newBody.Text = "";
+        }
+
+        private void newTitle_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (newTitle.Text.Trim().Length == 0)
+            {
+                addNote.IsEnabled = false;
+                titleValid = false;
+            }
+            else if(String.IsNullOrEmpty(newTitle.Text))
+            {
+                addNote.IsEnabled = false;
+                titleValid = false;
+            }
+            else
+            {
+                titleValid = true;
+                if(bodyValid == true)
+                {
+                    addNote.IsEnabled = true;
+                }
+            }
+        }
+
+        private void newBody_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (newBody.Text.Trim().Length == 0)
+            {
+                addNote.IsEnabled = false;
+                bodyValid = false;
+            }
+            else if (String.IsNullOrEmpty(newBody.Text))
+            {
+                addNote.IsEnabled = false;
+                bodyValid = false;
+            }
+            else
+            {
+                bodyValid = true;
+                if (titleValid == true)
+                {
+                    addNote.IsEnabled = true;
+                }
+            }
         }
     }
 
