@@ -28,6 +28,7 @@ using Windows.Media.FaceAnalysis;
 using Windows.UI;
 using System.Collections.Generic;
 using Microsoft.ProjectOxford.Face;
+using Microsoft.ProjectOxford.Common;
 using System.Collections.Concurrent;
 using Microsoft.ProjectOxford.Face.Contract;
 using System.IO;
@@ -135,6 +136,30 @@ namespace SafeNote
         {
             while (authenticating)
             {
+                Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+                if (DateTime.Compare(DateTime.Now, Convert.ToDateTime(localSettings.Values["faceExpiryDate"])) >= 0)
+                {
+                    outputBox.Text = "FaceID expired.";
+                    using (Stream s = File.OpenRead(localFolder.Path + "/user.jpg"))
+                    {
+                        try
+                        {
+                            Face[] f = await serviceClient.DetectAsync(s);
+
+                            if (f.Length > 0)
+                            {
+                                localSettings.Values["faceID"] = f[0].FaceId.ToString();
+                                outputBox.Text = "FaceID renewed.";
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            outputBox.Text = "Invalid key or quota had been used. Please enter password.";
+                        }
+                    }
+                }
+
                 var previewProperties = _mediaCapture.VideoDeviceController.GetMediaStreamProperties(MediaStreamType.VideoPreview) as VideoEncodingProperties;
 
                 // Create the video frame to request a SoftwareBitmap preview frame
@@ -167,27 +192,28 @@ namespace SafeNote
                                 {
                                     outputBox.Text = "Face Detected.";
 
-                                    Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                                    //Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
                                     try
                                     {
-                                        if (authenticating)
+                                       if (authenticating)
                                         {
-                                            VerifyResult res = await serviceClient.VerifyAsync(new Guid(faces[0].FaceId.ToString()), (new Guid((string)localSettings.Values["faceID"])));
+                                            outputBox.Text = (string)localSettings.Values["faceID"];
+                                            VerifyResult res = await serviceClient.VerifyAsync(new Guid(faces[0].FaceId.ToString()), new Guid((string)localSettings.Values["faceID"]));
 
-                                            if (res.IsIdentical == true)
+                                             if (res.IsIdentical == true)
                                             {
-                                                this.Frame.Navigate(typeof(Notes), null);
-                                            }
-                                            else
-                                            {
-                                                outputBox.Text ="Intruder. Access Denied!";
-                                            }
+                                               this.Frame.Navigate(typeof(Notes), null);
+                                             }
+                                             else
+                                             {
+                                                 outputBox.Text ="Intruder. Access Denied!";
+                                             }
                                         }
                                     }
                                     catch
                                     {
-                                        outputBox.Text = "Error detecting face.";
+                                        outputBox.Text = "Error verifying face.";
                                     }
                                 }
                                 else
@@ -336,16 +362,19 @@ namespace SafeNote
 
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-             if ((string)localSettings.Values["UserDetails"] == null || (string)localSettings.Values["UserDetails"] == "false")
-             { 
+            //localSettings.Values["faceExpiryDate"] = DateTime.Now.AddDays(-1).ToString();
+
+            if ((string)localSettings.Values["UserDetails"] == null || (string)localSettings.Values["UserDetails"] == "false")
+            { 
                  relocate = true;
                  localSettings.Values["UserDetails"] = "false";
                  localSettings.Values["faceID"] = "";
                  localSettings.Values["password"] = "";
-                 localSettings.Values["key"] = ""; 
-                 //hide buttons for verification
-                 //show logo and get started button
-                 settingsUI();
+                 localSettings.Values["key"] = "";
+                 localSettings.Values["faceExpiryDate"] = "";
+                //hide buttons for verification
+                //show logo and get started button
+                settingsUI();
             }
             else
             {

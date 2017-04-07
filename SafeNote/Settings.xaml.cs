@@ -18,6 +18,8 @@ namespace SafeNote
     {
         #region Global Variables
 
+        bool faceIDChanged = false;
+        DateTime faceDate;
         String faceID;
 
         // Get the app's local folder.
@@ -76,14 +78,18 @@ namespace SafeNote
                     await bitmapSource.SetBitmapAsync(softwareBitmapBGR8);
 
                     image.Source = bitmapSource;
+
+                    //DateTime to local var
+                    faceDate = DateTime.Now;
+
                     try
                     {
                         Face[] faces = await serviceClient.DetectAsync(imageStream.AsStream());
  
                         if (faces.Length > 0)
-                        {     
+                        {
                             faceID = faces[0].FaceId.ToString();
-                            // save FaceID here
+                            faceIDChanged = true;
                             //imageErrorBox.Text = "Face Detected.";
                             photoValid = true;
                             if(passwordCheckValid==true && passwordValid == true)
@@ -121,11 +127,13 @@ namespace SafeNote
 
             localSettings.Values["password"] = passwordBox.Password;
             localSettings.Values["UserDetails"] = "true";
-            localSettings.Values["faceID"] = faceID;
-
-            newFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-
-            SaveSoftwareBitmapToFile(softwareBitmap, newFile);
+            if (faceIDChanged)
+            {
+                localSettings.Values["faceID"] = faceID;
+                localSettings.Values["faceExpiryDate"] = faceDate.AddDays(1).ToString();
+                newFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+                SaveSoftwareBitmapToFile(softwareBitmap, newFile);
+            }
         }
 
         #endregion
