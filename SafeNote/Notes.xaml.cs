@@ -47,22 +47,14 @@ namespace SafeNote
 
             n = new Note() { title = title, body = body };
 
-            dataList.Add(n);
+            dataList.Insert(0, n);
 
             await FileIO.AppendTextAsync(notes, title + Environment.NewLine + body + Environment.NewLine);
-            
+
 
         }
         public async void loadNotes()
         {
-            /*Note n1 = new Note() { title = "Facebook", body = "password111" };
-            Note n2 = new Note() { title = "Twitter", body = "password77" };
-            Note n3 = new Note() { title = "Instagram", body = "password2" };
-
-            dataList.Add(n1);
-            dataList.Add(n2);
-            dataList.Add(n3);*/
-
             notes = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
             var info = await FileIO.ReadLinesAsync(notes);
             int count = 0;
@@ -77,7 +69,7 @@ namespace SafeNote
                 else
                 {
                     n.body = line;
-                    dataList.Add(n);       
+                    dataList.Insert(0, n);
                 }
                 count++;
             }
