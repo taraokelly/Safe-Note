@@ -5,7 +5,7 @@
 
 **Application Description**
 
-Safe Nofe is an application designed to store the user's confidential data. However, this is no ordinary note/password vault, Safe Note allows the user to log in both using facial authenication and the usual password authentication. The user does not have to even touch the screen to log in. Although the facial verification is quite accurate, I would strongly advise any user to remember their password to avoid not being able to authenicate themselves with the facial verification in the case of no internet, no light, and (extremely unlikely) exceeding their API call limit.
+Safe Nofe is an application designed to store the user's confidential data. However, this is no ordinary note/password vault, Safe Note allows the user to log in using both facial authenication and the usual password authentication. The user does not have to even touch the screen to log in. Although the facial verification is quite accurate, I would strongly advise any user to remember their password to avoid not being able to authenticate themselves with the facial verification in the case of no internet, no light, and (extremely unlikely) exceeding their API call limit.
 
 **Additional Points**
 
