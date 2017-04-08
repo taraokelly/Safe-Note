@@ -44,7 +44,7 @@ https://github.com/Microsoft/Cognitive-Face-Windows
 
 https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis
 
-https://github.com/smajida/FaceApi-Verify *DOWNLOAD*
+https://github.com/smajida/FaceApi-Verify
 
 http://windowsapptutorials.com/tips/how-to-disable-hardware-back-button-in-windows-phone-app/
 
