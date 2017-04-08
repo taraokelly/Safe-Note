@@ -11,12 +11,15 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.ProjectOxford.Face.Contract;
+using Windows.UI.Popups;
 
 namespace SafeNote
 {
     public sealed partial class Settings : Page
     {
         #region Global Variables
+
+        bool loggedOut = false;
 
         bool faceIDChanged = false;
         DateTime faceDate;
@@ -67,8 +70,6 @@ namespace SafeNote
                 }
                 else
                 {
-
-
                     imageStream = await photo.OpenAsync(FileAccessMode.Read);
                     BitmapDecoder decoder = await BitmapDecoder.CreateAsync(imageStream);
                     softwareBitmap = await decoder.GetSoftwareBitmapAsync();
@@ -135,6 +136,38 @@ namespace SafeNote
                 localSettings.Values["faceExpiryDate"] = faceDate.AddDays(1).ToString();
                 newFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
                 SaveSoftwareBitmapToFile(softwareBitmap, newFile);
+            }
+            if (loggedOut == true)
+            {
+                this.Frame.Navigate(typeof(MainPage), null);
+            }
+        }
+
+        private void notesButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Notes), null);
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(APIKey), null);
+        }
+
+        private async void OnBackKeyPress(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //Code to disable the back button
+            e.Cancel = true;
+            var dialog = new MessageDialog("Do you wish to exit app?");
+            dialog.Title = "SafeNote";
+
+            dialog.Commands.Add(new UICommand { Label = "Yes", Id = 0 });
+            dialog.Commands.Add(new UICommand { Label = "No", Id = 1 });
+            var result = await dialog.ShowAsync();
+
+            if ((int)result.Id == 0)
+            {
+                Application.Current.Exit();
+
             }
         }
 
@@ -252,10 +285,11 @@ namespace SafeNote
 
                 serviceClient = new FaceServiceClient(localSettings.Values["key"].ToString());
 
-
+                notesButton.IsEnabled = true;
             }
             else
             {
+                loggedOut = true;
                 passwordValid = false;
                 passwordCheckValid = false;
                 photoValid = false;

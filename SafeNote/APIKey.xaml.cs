@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -71,6 +73,29 @@ namespace SafeNote
             this.Frame.Navigate(typeof(Settings), null);
         }
 
+        private void notesButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Notes), null);
+        }
+
+        private async void OnBackKeyPress(object sender, CancelEventArgs e)
+        {
+            //Code to disable the back button
+            e.Cancel = true;
+            var dialog = new MessageDialog("Do you wish to exit app?");
+            dialog.Title = "SafeNote";
+
+            dialog.Commands.Add(new UICommand { Label = "Yes", Id = 0 });
+            dialog.Commands.Add(new UICommand { Label = "No", Id = 1 });
+            var result = await dialog.ShowAsync();
+
+            if ((int)result.Id == 0)
+            {
+                Application.Current.Exit();
+
+            }
+        }
+
         #endregion
 
         #region Navigation Events
@@ -84,6 +109,10 @@ namespace SafeNote
             if((string)localSettings.Values["key"] != "")
             {
                 next.IsEnabled = true;
+            }
+            if ((string)localSettings.Values["UserDetails"] == "true")
+            {
+                notesButton.IsEnabled = true;
             }
         }
 

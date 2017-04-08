@@ -45,11 +45,19 @@
                 <!-- <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">-->
                 
                 <!--Take Picture Button, Image and Error Handling-->
-                <Button Name="cameraButton" Click="Camera_Click" HorizontalAlignment="Center" IsEnabled="True" MinWidth="40">
-                    <Viewbox>
-                        <SymbolIcon Symbol="Camera"/>
-                    </Viewbox>
-                </Button>
+                <!--Button to Notes Page-->
+                <Grid>
+                    <Button Name="notesButton" Click="notesButton_Click" IsEnabled="False" BorderThickness="0" BorderBrush="DarkGreen" Foreground="Green" Background="Transparent" Width="60"  Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Edit"/>
+                        </Viewbox>
+                    </Button>
+                    <Button Name="cameraButton" Click="Camera_Click" HorizontalAlignment="Center" IsEnabled="True" MinWidth="40">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Camera"/>
+                        </Viewbox>
+                    </Button>
+                </Grid>
                 <Image x:Name="image" Height="130" Width="130" Source="/Assets/personplaceholder.jpg" HorizontalAlignment="Center"/>
                 <TextBox x:Name="imageErrorBox" Foreground="Red" Height="40" Width="350"  BorderThickness="0" IsReadOnly="True"/>
                 
@@ -65,6 +73,9 @@
                 
                 <!--Submit Button-->
                 <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center"  Click="submit_Click"/>
+                
+                <!--Back Button-->
+                <Button x:Name="back" Content="BACK" HorizontalAlignment="Center" Click="back_Click"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

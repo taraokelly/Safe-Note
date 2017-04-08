@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,6 +21,8 @@ namespace SafeNote
 {
     public sealed partial class Notes : Page
     {
+        #region Variables
+
         ObservableCollection<Note> dataList = new ObservableCollection<Note>();
         StorageFolder localFolder = ApplicationData.Current.LocalFolder;
         StorageFile notes;
@@ -27,24 +30,19 @@ namespace SafeNote
         Note n = new Note();
         bool titleValid = false, bodyValid = false;
 
+        #endregion
+
+        #region Contstructor
+
         public Notes()
         {
             this.InitializeComponent();
         }
 
-        public async void saveNotes()
-        {
-            notes = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+        #endregion
 
-            foreach(var item in dataList)
-            {
-                item.title = item.title.Replace("\n", String.Empty);
-                item.body = item.body.Replace("\n", String.Empty);
+        #region Gerneral Functions
 
-                await FileIO.AppendTextAsync(notes, item.title + Environment.NewLine + item.body + Environment.NewLine);
-            }
-
-        }
         public async void saveNote(string title, string body)
         {
             notes = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
@@ -81,16 +79,23 @@ namespace SafeNote
             }
         }
 
+        #endregion
+
+        #region Naviagtion Events
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             listView.ItemsSource = dataList;
             loadNotes();
-            //saveNotes();
         }
+
+        #endregion
+
+        #region Click Events
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(APIKey), null);
         }
 
         private void addNote_Click(object sender, RoutedEventArgs e)
@@ -99,6 +104,28 @@ namespace SafeNote
             newTitle.Text = "";
             newBody.Text = "";
         }
+
+        private async void OnBackKeyPress(object sender, CancelEventArgs e)
+        {
+            //Code to disable the back button
+            e.Cancel = true;
+            var dialog = new MessageDialog("Do you wish to exit app?");
+            dialog.Title = "SafeNote";
+
+            dialog.Commands.Add(new UICommand { Label = "Yes", Id = 0 });
+            dialog.Commands.Add(new UICommand { Label = "No", Id = 1 });
+            var result = await dialog.ShowAsync();
+
+            if ((int)result.Id == 0)
+            {
+                Application.Current.Exit();
+
+            }
+        }
+
+        #endregion
+
+        #region Property Changed Events
 
         private void newTitle_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -115,34 +142,11 @@ namespace SafeNote
             else
             {
                 titleValid = true;
+
                 if(bodyValid == true)
                 {
-                    addNote.IsEnabled = true;
+                        addNote.IsEnabled = true;
                 }
-            }
-        }
-
-        private async void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            /* if (listView.SelectedItem != null)
-             {
-                 newTitle.Text =
-                     "Selected item: " + listView.SelectedItem.ToString();
-                 newBody.Text = "Index: " + listView.SelectedIndex.ToString();
-             }*/
-            var dialog = new MessageDialog(listView.SelectedItem.ToString());
-            dialog.Title = "Edit or Delete?";
-            dialog.Commands.Add(new UICommand { Label = "Edit", Id = 0 });
-            dialog.Commands.Add(new UICommand { Label = "Delete", Id = 1 });
-            var result = await dialog.ShowAsync();
-
-            if((int)result.Id == 0)
-            {
-                //Edit
-            }
-            else if ((int)result.Id == 0)
-            {
-                //delete
             }
         }
 
@@ -163,12 +167,15 @@ namespace SafeNote
                 bodyValid = true;
                 if (titleValid == true)
                 {
-                    addNote.IsEnabled = true;
+                    addNote.IsEnabled = true;          
                 }
             }
         }
+
+        #endregion
     }
 
+    #region Note Object
     class Note
     {
         public string title { get; set; }
@@ -179,4 +186,5 @@ namespace SafeNote
             return title;
         }
     }
+    #endregion
 }

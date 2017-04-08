@@ -27,21 +27,28 @@
                 <Setter Property="BorderBrush" Value="DarkGreen"/>
             </Style>
         </Grid.Resources>
+        
+        <!--Button to Notes Page-->
+        <Button x:ConnectionId='1' Name="notesButton"                           IsEnabled="False" BorderThickness="0" BorderBrush="DarkGreen" Foreground="Green" Background="Transparent" Width="60"  Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+            <Viewbox>
+                <SymbolIcon Symbol="Edit"/>
+            </Viewbox>
+        </Button>
 
         <StackPanel VerticalAlignment="Center">
-            
+
             <!--Enter Key With Link and Validation-->
-            <TextBox x:ConnectionId='2' x:Name="keyBox" Header="Enter Face Key:"                                  MaxLength="40"/>
-            <TextBox x:ConnectionId='3' x:Name="keyErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
+            <TextBox x:ConnectionId='3' x:Name="keyBox" Header="Enter Face Key:"                                  MaxLength="40"/>
+            <TextBox x:ConnectionId='4' x:Name="keyErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
             <HyperlinkButton NavigateUri="https://www.microsoft.com/cognitive-services/en-us/sign-up" HorizontalAlignment="Center">Don't have a key? Sign up for free here.</HyperlinkButton>
             
             <!--Submit Button-->
-            <Button x:ConnectionId='4' x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center" IsEnabled="False"                     />
+            <Button x:ConnectionId='5' x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center" IsEnabled="False"                     />
 
         </StackPanel>
         
         <!--Continue Button-->
-        <Button x:ConnectionId='1' x:Name="next" Content="CONTINUE" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,10,10" Background="Green" Foreground="White" IsEnabled="False" BorderBrush="DarkGreen"                       />
+        <Button x:ConnectionId='2' x:Name="next" Content="CONTINUE" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,10,10" Background="Green" Foreground="White" IsEnabled="False" BorderBrush="DarkGreen"                       />
     </Grid>
 </Page>
 

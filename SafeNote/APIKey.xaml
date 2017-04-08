@@ -27,9 +27,16 @@
                 <Setter Property="BorderBrush" Value="DarkGreen"/>
             </Style>
         </Grid.Resources>
+        
+        <!--Button to Notes Page-->
+        <Button Name="notesButton" Click="notesButton_Click" IsEnabled="False" BorderThickness="0" BorderBrush="DarkGreen" Foreground="Green" Background="Transparent" Width="60"  Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+            <Viewbox>
+                <SymbolIcon Symbol="Edit"/>
+            </Viewbox>
+        </Button>
 
         <StackPanel VerticalAlignment="Center">
-            
+
             <!--Enter Key With Link and Validation-->
             <TextBox x:Name="keyBox" Header="Enter Face Key:" TextChanged="keyBox_TextChanged" MaxLength="40"/>
             <TextBox x:Name="keyErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>

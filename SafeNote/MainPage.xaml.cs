@@ -34,6 +34,8 @@ using Microsoft.ProjectOxford.Face.Contract;
 using System.IO;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Threading;
+using Windows.UI.Popups;
+using System.ComponentModel;
 
 namespace SafeNote
 {
@@ -244,6 +246,23 @@ namespace SafeNote
             this.Frame.Navigate(typeof(APIKey), null);
         }
 
+        private async void OnBackKeyPress(object sender, CancelEventArgs e)
+        {
+            //Code to disable the back button
+            e.Cancel = true;
+            var dialog = new MessageDialog("Do you wish to exit app?");
+            dialog.Title = "SafeNote";
+
+            dialog.Commands.Add(new UICommand { Label = "Yes", Id = 0 });
+            dialog.Commands.Add(new UICommand { Label = "No", Id = 1 });
+            var result = await dialog.ShowAsync();
+
+            if((int)result.Id == 0)
+            {
+                CloseApp();
+            }
+        }
+
         #endregion Click Events
 
         #region Preview Handlers 
@@ -361,7 +380,6 @@ namespace SafeNote
 
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-            //localSettings.Values["faceExpiryDate"] = DateTime.Now.AddDays(-1).ToString();
 
             if ((string)localSettings.Values["UserDetails"] == null || (string)localSettings.Values["UserDetails"] == "false")
             { 
@@ -423,7 +441,8 @@ namespace SafeNote
             else
             {
                 await CleanupUiAsync();
-            }
+            } 
+            CloseApp();
         }
         private async void Application_Resuming(object sender, object o)
         {

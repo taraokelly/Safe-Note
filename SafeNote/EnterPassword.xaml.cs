@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -42,7 +44,7 @@ namespace SafeNote
             this.Frame.Navigate(typeof(MainPage), null);
         }
 
-        private async void login_Click(object sender, RoutedEventArgs e)
+        private void login_Click(object sender, RoutedEventArgs e)
         {
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
@@ -57,6 +59,24 @@ namespace SafeNote
             else
             {
                 outputBox.Text = "Invalid Password. Access Denied.";
+            }
+        }
+
+        private async void OnBackKeyPress(object sender, CancelEventArgs e)
+        {
+            //Code to disable the back button
+            e.Cancel = true;
+            var dialog = new MessageDialog("Do you wish to exit app?");
+            dialog.Title = "SafeNote";
+
+            dialog.Commands.Add(new UICommand { Label = "Yes", Id = 0 });
+            dialog.Commands.Add(new UICommand { Label = "No", Id = 1 });
+            var result = await dialog.ShowAsync();
+
+            if ((int)result.Id == 0)
+            {
+                Application.Current.Exit();
+                
             }
         }
 

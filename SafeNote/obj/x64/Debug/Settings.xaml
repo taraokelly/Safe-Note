@@ -45,26 +45,37 @@
                 <!-- <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">-->
                 
                 <!--Take Picture Button, Image and Error Handling-->
-                <Button x:ConnectionId='1' Name="cameraButton"                      HorizontalAlignment="Center" IsEnabled="True" MinWidth="40">
-                    <Viewbox>
-                        <SymbolIcon Symbol="Camera"/>
-                    </Viewbox>
-                </Button>
-                <Image x:ConnectionId='2' x:Name="image" Height="130" Width="130" Source="/Assets/personplaceholder.jpg" HorizontalAlignment="Center"/>
-                <TextBox x:ConnectionId='3' x:Name="imageErrorBox" Foreground="Red" Height="40" Width="350"  BorderThickness="0" IsReadOnly="True"/>
+                <!--Button to Notes Page-->
+                <Grid>
+                    <Button x:ConnectionId='9' Name="notesButton"                           IsEnabled="False" BorderThickness="0" BorderBrush="DarkGreen" Foreground="Green" Background="Transparent" Width="60"  Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Edit"/>
+                        </Viewbox>
+                    </Button>
+                    <Button x:ConnectionId='10' Name="cameraButton"                      HorizontalAlignment="Center" IsEnabled="True" MinWidth="40">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Camera"/>
+                        </Viewbox>
+                    </Button>
+                </Grid>
+                <Image x:ConnectionId='1' x:Name="image" Height="130" Width="130" Source="/Assets/personplaceholder.jpg" HorizontalAlignment="Center"/>
+                <TextBox x:ConnectionId='2' x:Name="imageErrorBox" Foreground="Red" Height="40" Width="350"  BorderThickness="0" IsReadOnly="True"/>
                 
                 <!-- </StackPanel> -->
                 
                 <!--Password with validation-->
-                <PasswordBox x:ConnectionId='4' x:Name="passwordBox" Header="Enter Password:" HorizontalAlignment="Center"                                               MaxLength="30"/>
-                <TextBox x:ConnectionId='5' x:Name="passwordErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
+                <PasswordBox x:ConnectionId='3' x:Name="passwordBox" Header="Enter Password:" HorizontalAlignment="Center"                                               MaxLength="30"/>
+                <TextBox x:ConnectionId='4' x:Name="passwordErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
                 
                 <!--Re-Enter Password with validation-->
-                <PasswordBox x:ConnectionId='6' x:Name="checkPasswordBox" Header="Re-enter Password:" HorizontalAlignment="Center"                                                   />
-                <TextBox x:ConnectionId='7' x:Name="checkPasswordErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
+                <PasswordBox x:ConnectionId='5' x:Name="checkPasswordBox" Header="Re-enter Password:" HorizontalAlignment="Center"                                                   />
+                <TextBox x:ConnectionId='6' x:Name="checkPasswordErrorBox" Foreground="Red" Height="30" BorderThickness="0" IsReadOnly="True"/>
                 
                 <!--Submit Button-->
-                <Button x:ConnectionId='8' x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center"                      />
+                <Button x:ConnectionId='7' x:Name="submit" Content="SUBMIT" HorizontalAlignment="Center"                      />
+                
+                <!--Back Button-->
+                <Button x:ConnectionId='8' x:Name="back" Content="BACK" HorizontalAlignment="Center"                   />
             </StackPanel>
         </ScrollViewer>
     </Grid>
