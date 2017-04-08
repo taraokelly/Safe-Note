@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -121,13 +122,27 @@ namespace SafeNote
             }
         }
 
-        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (listView.SelectedItem != null)
+            /* if (listView.SelectedItem != null)
+             {
+                 newTitle.Text =
+                     "Selected item: " + listView.SelectedItem.ToString();
+                 newBody.Text = "Index: " + listView.SelectedIndex.ToString();
+             }*/
+            var dialog = new MessageDialog(listView.SelectedItem.ToString());
+            dialog.Title = "Edit or Delete?";
+            dialog.Commands.Add(new UICommand { Label = "Edit", Id = 0 });
+            dialog.Commands.Add(new UICommand { Label = "Delete", Id = 1 });
+            var result = await dialog.ShowAsync();
+
+            if((int)result.Id == 0)
             {
-                newTitle.Text =
-                    "Selected item: " + listView.SelectedItem.ToString();
-                newBody.Text = "Index: " + listView.SelectedIndex.ToString();
+                //Edit
+            }
+            else if ((int)result.Id == 0)
+            {
+                //delete
             }
         }
 
