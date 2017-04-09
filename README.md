@@ -1,7 +1,9 @@
 # Safe-Note
 *A Windows Universal Platform application, written in C#, that acts as a secretnote/password vault with facial recognition for authentication. Third year, Data Representation and Querying, Software Development.*
 
-**Update: now called Note Safe. The application title, Safe Note, was not available.**
+-  **Update: now called Note Safe. The application title, Safe Note, was not available.**
+
+- **Update: bug fix. Any clone before the 39th commit is unstable, the facial recgonition in the settings page will not work**
 
 **Application Description**
 
