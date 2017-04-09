@@ -275,6 +275,8 @@ namespace SafeNote
 
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
+            serviceClient = new FaceServiceClient(localSettings.Values["key"].ToString());
+
             if ((string)localSettings.Values["UserDetails"] != "false")
             {
                 passwordBox.Password = localSettings.Values["password"].ToString();
@@ -282,8 +284,6 @@ namespace SafeNote
                 checkPasswordBox.Password = localSettings.Values["password"].ToString();
 
                 image.Source = new BitmapImage(new Uri(localFolder.Path + "/"+ fileName, UriKind.Absolute));
-
-                serviceClient = new FaceServiceClient(localSettings.Values["key"].ToString());
 
                 notesButton.IsEnabled = true;
             }

@@ -10,13 +10,13 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>4bd7c854-b471-4a7e-b7e5-72ef6a3e5794</PackageIdentityName>
     <PackageIdentityPublisher>CN=Tara</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>64F9FFE8ED21819FFD2485C4B58599699660C8C48D04BFA37989FE56822EFD7D</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>0DB4E281FFE743FFFACEE986A023B09C33547A8E511A5306C02A482D14A84874</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>4bd7c854-b471-4a7e-b7e5-72ef6a3e5794_1.0.0.0_x64__t07fbsmg8205t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>4bd7c854-b471-4a7e-b7e5-72ef6a3e5794_t07fbsmg8205t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>4bd7c854-b471-4a7e-b7e5-72ef6a3e5794</RegisteredPackageID>
@@ -25,16 +25,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-08T02:03:12.252</Modified>
+      <Modified>2017-04-09T17:37:04.512</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.exe">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\SafeNote.exe">
       <PackagePath>entrypoint\SafeNote.exe</PackagePath>
-      <Modified>2017-04-08T02:03:11.757</Modified>
+      <Modified>2017-04-09T17:37:00.746</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -468,64 +468,134 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-12-15T17:48:55.464</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\personplaceholder.jpg">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\personplaceholder.jpg">
       <PackagePath>Assets\personplaceholder.jpg</PackagePath>
       <Modified>2017-04-05T20:39:14.584</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2017-04-02T16:44:10.556</Modified>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T12:55:39.199</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T12:55:40.720</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T12:55:42.481</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T12:55:44.932</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-100.png">
+      <PackagePath>Assets\Square310x310Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T14:29:57.326</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-125.png">
+      <PackagePath>Assets\Square310x310Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T14:29:13.532</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-150.png">
+      <PackagePath>Assets\Square310x310Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T14:29:41.321</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-200.png">
+      <PackagePath>Assets\Square310x310Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T14:29:15.918</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-400.png">
+      <PackagePath>Assets\Square310x310Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-08T14:29:19.533</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-09T13:53:37.161</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-09T13:50:06.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-09T13:47:20.126</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-09T12:49:37.959</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-09T12:49:39.579</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2015-09-20T17:30:08.000</Modified>
+      <Modified>2017-04-08T02:55:00.020</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T17:30:08.000</Modified>
+      <Modified>2017-04-08T14:45:07.917</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T17:30:08.000</Modified>
+      <Modified>2017-04-08T12:31:49.452</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T17:30:08.000</Modified>
+      <Modified>2017-04-08T12:31:47.755</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T17:30:08.000</Modified>
+      <Modified>2017-04-08T12:31:44.279</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T17:30:08.000</Modified>
+      <Modified>2017-04-09T13:53:37.161</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T17:30:08.000</Modified>
+      <Modified>2017-04-08T12:31:53.431</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2017-04-09T17:08:23.587</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\SafeNote.xr.xml">
       <PackagePath>SafeNote.xr.xml</PackagePath>
-      <Modified>2017-04-08T01:21:47.593</Modified>
+      <Modified>2017-04-09T17:08:32.690</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-03-25T13:00:34.538</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-08T01:41:36.090</Modified>
+      <Modified>2017-04-09T17:37:04.090</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\SafeNote.exe">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\Core\SafeNote.exe">
       <PackagePath>SafeNote.exe</PackagePath>
-      <Modified>2017-04-08T02:03:12.246</Modified>
+      <Modified>2017-04-09T17:37:04.496</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

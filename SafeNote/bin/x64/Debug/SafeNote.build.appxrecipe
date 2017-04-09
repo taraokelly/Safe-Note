@@ -10,19 +10,19 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>4bd7c854-b471-4a7e-b7e5-72ef6a3e5794</PackageIdentityName>
     <PackageIdentityPublisher>CN=Tara</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.exe">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\SafeNote.exe">
       <PackagePath>entrypoint\SafeNote.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
@@ -349,50 +349,106 @@
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\personplaceholder.jpg">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\personplaceholder.jpg">
       <PackagePath>Assets\personplaceholder.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-100.png">
+      <PackagePath>Assets\Square310x310Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-125.png">
+      <PackagePath>Assets\Square310x310Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-150.png">
+      <PackagePath>Assets\Square310x310Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-200.png">
+      <PackagePath>Assets\Square310x310Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square310x310Logo.scale-400.png">
+      <PackagePath>Assets\Square310x310Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\SafeNote.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\SafeNote.xr.xml">
       <PackagePath>SafeNote.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Tara\documents\visual studio 2015\Projects\SafeNote\SafeNote\bin\x64\Debug\Core\SafeNote.exe">
+    <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\Core\SafeNote.exe">
       <PackagePath>SafeNote.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
