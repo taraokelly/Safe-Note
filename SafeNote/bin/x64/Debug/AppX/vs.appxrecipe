@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-17T15:11:17.063</Modified>
+      <Modified>2017-04-18T15:33:49.106</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\SafeNote.exe">
       <PackagePath>entrypoint\SafeNote.exe</PackagePath>
-      <Modified>2017-04-17T15:11:14.604</Modified>
+      <Modified>2017-04-18T15:33:46.523</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -595,7 +595,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tara\Documents\Mobile App Dev 2\NoteSafe\Safe-Note\SafeNote\bin\x64\Debug\Core\SafeNote.exe">
       <PackagePath>SafeNote.exe</PackagePath>
-      <Modified>2017-04-17T15:11:17.049</Modified>
+      <Modified>2017-04-18T15:33:49.086</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
